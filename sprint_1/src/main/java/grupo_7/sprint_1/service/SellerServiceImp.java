@@ -17,16 +17,20 @@ import grupo_7.sprint_1.repository.ISellerRepository;
 import grupo_7.sprint_1.utils.Mapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class SellerServiceImp implements ISellerService {
-    ISellerRepository sellerRepository;
+    private final ISellerRepository sellerRepository;
+    private final IBuyerRepository buyerRepository;
 
-    public SellerServiceImp(ISellerRepository sellerRepository) {
+    public SellerServiceImp(ISellerRepository sellerRepository, IBuyerRepository buyerRepository) {
         this.sellerRepository = sellerRepository;
+        this.buyerRepository = buyerRepository;
     }
 
     @Override
@@ -109,5 +113,28 @@ public class SellerServiceImp implements ISellerService {
 
         int followersCount = sellerRepository.cantidadDeSeguidores(id);
         return Mapper.convertSellerToSllerDTO(seller.get(), followersCount);
+    }
+    @Override
+    public List<PostDto> getRecentPostsFromFollowedSellers(Integer buyerId) {
+
+        Buyer buyer = buyerRepository.findBuyerById(buyerId);
+        if (buyer == null) {
+            throw new NotFoundException("El comprador con el ID " + buyerId + " no existe");
+        }
+        List<Seller> followedSellers = buyer.getFollowed();
+        List<PostDto> posts = new ArrayList<>();
+        LocalDate dosSemanas = LocalDate.now().minusWeeks(2);
+        for (Seller seller : followedSellers) {
+            List<Post> sellerPosts = seller.getPosts();
+            if (sellerPosts != null) {
+                for (Post post : sellerPosts) {
+                    if (post.getDate().isAfter(dosSemanas)) {
+                        posts.add(Mapper.convertPostToPostDto(post));
+                    }
+                }
+            }
+        }
+        posts.sort(Comparator.comparing(PostDto::getDate).reversed());
+        return posts;
     }
 }
