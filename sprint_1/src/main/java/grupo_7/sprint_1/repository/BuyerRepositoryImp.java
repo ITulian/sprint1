@@ -20,12 +20,13 @@ import java.util.List;
 @Repository
 public class BuyerRepositoryImp implements IBuyerRepository {
 
+    Mapper mapper;
     private List<Buyer> buyerList = new ArrayList<>();
 
-   /* public BuyerRepositoryImp(Mapper mapper) throws IOException {
+   public BuyerRepositoryImp(Mapper mapper) throws IOException {
         this.mapper = mapper;
         this.buyerList = loadBuyers();
-    }*/
+    }
 
     @Override
     public Buyer findBuyerById(Integer id) {

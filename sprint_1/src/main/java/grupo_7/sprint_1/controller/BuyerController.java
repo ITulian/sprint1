@@ -28,4 +28,9 @@ public class BuyerController {
     public ResponseEntity<?> getfollowedlist(@PathVariable Integer userid, @RequestParam String order) {
         return new ResponseEntity<>(buyerService.getBuyerfollow(userid,order), HttpStatus.OK);
     }
+
+    @PostMapping("/users/{userId}/unfollow/{userIdToUnfollow}")
+    public ResponseEntity<?> unfollowSeller(@PathVariable int userId, @PathVariable int userIdToUnfollow) {
+        return new ResponseEntity<>(buyerService.unfollowSeller(userId, userIdToUnfollow), HttpStatus.OK);
+    }
 }
