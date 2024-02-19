@@ -2,6 +2,8 @@ package grupo_7.sprint_1.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import grupo_7.sprint_1.dtos.PostPostDto;
 import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.entity.Seller;
@@ -11,6 +13,8 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -24,7 +28,7 @@ public class SellerRepositoryImp implements ISellerRepository {
 
     public SellerRepositoryImp(Mapper mapper) throws IOException {
         this.mapper = mapper;
-        this.sellers = loadSellers();
+        loadSellers();
     }
 
     @Override
@@ -51,16 +55,26 @@ public class SellerRepositoryImp implements ISellerRepository {
                 .orElse(0);
     }
 
-    private List<Seller> loadSellers() throws IOException {
+    private void loadSellers() throws IOException {
         File file;
         ObjectMapper objectMapper = new ObjectMapper();
         List<Seller> mappedSellers;
 
-        file = ResourceUtils.getFile("classpath:sellers.json");
-        mappedSellers = objectMapper.readValue(file, new TypeReference<List<Seller>>() {
-        });
+        try {
+            file = ResourceUtils.getFile("classpath:sellers.json");
 
-        return mappedSellers;
+            objectMapper.registerModule(new JavaTimeModule());
+            objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+            objectMapper.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
+            mappedSellers = objectMapper.readValue(file, new TypeReference<List<Seller>>() {
+            });
+            sellers = mappedSellers;
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            System.out.println(LocalDate.now());
+        }
+
+
     }
 
 }
