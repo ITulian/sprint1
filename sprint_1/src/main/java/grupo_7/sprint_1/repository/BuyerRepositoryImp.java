@@ -19,23 +19,31 @@ import java.util.List;
 
 @Repository
 public class BuyerRepositoryImp implements IBuyerRepository {
-    Mapper mapper;
+
     private List<Buyer> buyerList = new ArrayList<>();
 
-    public BuyerRepositoryImp(Mapper mapper) throws IOException{
+   /* public BuyerRepositoryImp(Mapper mapper) throws IOException {
         this.mapper = mapper;
         this.buyerList = loadBuyers();
+    }*/
+
+    @Override
+    public Buyer findBuyerById(Integer id) {
+        return buyerList.stream()
+                .filter(buyer -> buyer.getUserId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
-    public Buyer getFollowlist(Integer id) {
-        return buyerList.get(id);
+    public void updateBuyer(Buyer buyer) {
+        buyerList.remove(buyer);
+        buyerList.add(buyer);
     }
 
     // busco la lista de los seguidos del comrpador por ID
     @Override
     public Buyer getById(int id) {
-        //BuyerDto buyerDto = new BuyerDto();
         Buyer buyer = buyerList.stream()
                 .filter(buyerFilter -> buyerFilter.getUserId() == id)
                 .findFirst()

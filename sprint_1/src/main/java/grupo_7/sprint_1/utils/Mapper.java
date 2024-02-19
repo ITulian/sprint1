@@ -21,7 +21,7 @@ public class Mapper {
     public static ProductDto convertProductToProductDto(Product product) {
         return new ProductDto(
                 product.getProductId(),
-                product.getName(),
+                product.getProductName(),
                 product.getType(),
                 product.getBrand(),
                 product.getColor(),
@@ -53,7 +53,13 @@ public class Mapper {
         return new BuyerDto(
                 buyer.getUserId(),
                 buyer.getUserName(),
-                buyer.getFollowed()
+                buyer.getFollowed().stream().map(Mapper::convertSellerToSellerDTOlist).toList()
+        );
+    }
+    public static SellerListDto convertSellerToSellerDTOlist(Seller seller) {
+        return new SellerListDto(
+                seller.getUserId(),
+                seller.getUserName()
         );
     }
     public static SellerDTO convertSellerToSllerDTO(Seller seller, int cantidadDeSeguidores) {

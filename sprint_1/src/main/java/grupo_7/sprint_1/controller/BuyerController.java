@@ -10,12 +10,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/buyers")
 public class BuyerController {
 
     IBuyerService buyerService;
 
     public BuyerController(BuyerServiceImp buyerService) {
         this.buyerService = buyerService;
+    }
+
+    @PostMapping("/users/{buyerId}/follow/{sellerId}")
+    public ResponseEntity<?> followSeller(@PathVariable Integer buyerId, @PathVariable Integer sellerId) {
+        return new ResponseEntity<>(buyerService.followSeller(buyerId,sellerId), HttpStatus.OK);
     }
 
     @GetMapping("/users/{userid}/followed/list")

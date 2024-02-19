@@ -19,21 +19,19 @@
     "posts": [
       {
         "product": {
-          "productId": 1,
-          "name": "Product_1"
+          "productName": "Product_1"
         },
         "category": 1,
         "price": 10.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       },
       {
         "product": {
-          "productId": 1,
-          "name": "Product_2"
+          "productName": "Product_2"
         },
         "category": 2,
         "price": 20.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       }
     ]
   },
@@ -57,21 +55,19 @@
     "posts": [
       {
         "product": {
-          "productId": 1,
-          "name": "Product_3"
+          "productName": "Product_3"
         },
         "category": 3,
         "price": 30.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       },
       {
         "product": {
-          "productId": 1,
-          "name": "Product_4"
+          "productName": "Product_4"
         },
         "category": 4,
         "price": 40.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       }
     ]
   },
@@ -95,21 +91,19 @@
     "posts": [
       {
         "product": {
-          "productId": 1,
-          "name": "Product_5"
+          "productName": "Product_5"
         },
         "category": 5,
         "price": 50.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       },
       {
         "product": {
-          "productId": 1,
-          "name": "Product_6"
+          "productName": "Product_6"
         },
         "category": 6,
         "price": 60.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       }
     ]
   },
@@ -133,21 +127,19 @@
     "posts": [
       {
         "product": {
-          "productId": 1,
-          "name": "Product_7"
+          "productName": "Product_7"
         },
         "category": 7,
         "price": 70.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       },
       {
         "product": {
-          "productId": 1,
-          "name": "Product_8"
+          "productName": "Product_8"
         },
         "category": 8,
         "price": 80.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       }
     ]
   },
@@ -171,21 +163,19 @@
     "posts": [
       {
         "product": {
-          "productId": 1,
-          "name": "Product_9"
+          "productName": "Product_9"
         },
         "category": 9,
         "price": 90.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       },
       {
         "product": {
-          "productId": 1,
-          "name": "Product_10"
+          "productName": "Product_10"
         },
         "category": 10,
         "price": 100.0,
-        "date": "2024-01-01"
+        "date": "2024-01-30"
       }
     ]
   }

@@ -3,15 +3,15 @@ package grupo_7.sprint_1.controller;
 import grupo_7.sprint_1.dtos.PostPostDto;
 import grupo_7.sprint_1.dtos.SellerDTO;
 import grupo_7.sprint_1.dtos.SellerFollowersListDto;
+import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.service.ISellerService;
 import grupo_7.sprint_1.service.SellerServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("/sellers")
 public class SellerController {
     ISellerService sellerService;
 
@@ -20,7 +20,7 @@ public class SellerController {
     }
 
     @PostMapping("/products/post/{sellerId}")
-    public ResponseEntity<?> postPost(@PathVariable(name = "seller_id") Integer sellerId,
+    public ResponseEntity<?> postPost(@PathVariable Integer sellerId,
                                       @RequestBody PostPostDto newPost) {
         return new ResponseEntity<>(sellerService.postPost(sellerId, newPost), HttpStatus.OK);
     }
@@ -33,6 +33,11 @@ public class SellerController {
 
     @GetMapping("/users/{userId}/followers/count")
     public ResponseEntity<SellerDTO> getFollowersCount(@PathVariable int userId) {
-        return new ResponseEntity<>(sellerService.cantidadSeguidores(userId), HttpStatus.OK);
+        try {
+            SellerDTO sellerDTO = sellerService.cantidadSeguidores(userId);
+            return new ResponseEntity<>(sellerDTO, HttpStatus.OK);
+        } catch (NotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
