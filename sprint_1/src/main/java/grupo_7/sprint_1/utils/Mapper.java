@@ -4,6 +4,7 @@ import grupo_7.sprint_1.dtos.*;
 import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.entity.Product;
+import grupo_7.sprint_1.entity.Seller;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
@@ -55,6 +56,29 @@ public class Mapper {
                 buyer.getFollowed()
         );
     }
+    public static SellerDTO convertSellerToSllerDTO(Seller seller, int cantidadDeSeguidores) {
+        return new SellerDTO(
+                seller.getUserId(),
+                seller.getUserName(),
+                cantidadDeSeguidores
+        );
+    }
+//    public static Link createLink(RequestCreateLinkDTO linkDto, Integer id) {
+//        return Link.builder()
+//                .linkId(id)
+//                .url(linkDto.getUrl())
+//                .password(linkDto.getPassword())
+//                .build();
+//    }
+//
+//    public static LinkResponseDTO createLinkResponseDTO(Link link) {
+//        return LinkResponseDTO.builder()
+//                .linkId(link.getLinkId())
+//                .url(link.getUrl())
+//                .password(link.getPassword())
+//                .timesVisited(link.getTimesVisited())
+//                .build();
+//    }
 
     public static BuyerDtoRequisito3 convertListToDto (Buyer buyerList){
         return new BuyerDtoRequisito3(buyerList.getUserId(),buyerList.getUserName());

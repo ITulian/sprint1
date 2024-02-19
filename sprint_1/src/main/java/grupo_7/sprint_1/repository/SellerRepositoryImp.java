@@ -40,4 +40,14 @@ public class SellerRepositoryImp implements ISellerRepository {
                 .findFirst()
                 .orElseThrow(() -> new NotFoundException("Seller not found with ID: " + userId));
     }
+    public int cantidadDeSeguidores(int userId) {
+        for (Seller seller : sellers) {
+            if (seller.getUserId() == userId) {
+                return seller.getFollowers().size();
+            }
+        }
+        return 0;
+    }
+
 }
+
