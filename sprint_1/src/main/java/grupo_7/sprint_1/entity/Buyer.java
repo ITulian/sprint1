@@ -11,7 +11,6 @@ import java.util.List;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-
 public class Buyer extends User {
     List<Seller> followed;
 }

@@ -10,14 +10,4 @@ public record ProductDto(
         @JsonProperty("color") String color,
         @JsonProperty("notes") String notes
 ) {
-    /*
-    "product": {
-        "product_id": 1,
-        "product_name": "Silla Gamer",
-        "type": "Gamer",
-        "brand": "Racer",
-        "color": "Red & Black",
-        "notes": "Special Edition"
-    }
-    */
 }

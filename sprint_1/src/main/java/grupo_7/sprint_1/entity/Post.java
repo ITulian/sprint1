@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-
 public class Post {
     Product product;
     Integer category;

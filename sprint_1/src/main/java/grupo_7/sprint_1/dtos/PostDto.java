@@ -10,5 +10,4 @@ public record PostDto(
         Double price,
         LocalDate date
 ) {
-
 }
