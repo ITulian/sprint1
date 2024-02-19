@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class SellerRepositoryImp implements ISellerRepository {
@@ -22,11 +23,11 @@ public class SellerRepositoryImp implements ISellerRepository {
 
     @Override
     public Post postPost(Integer sellerId, PostPostDto newPost) {
-        Post post = mapper.convertPostDtoToPost(newPost);
+        Post post = Mapper.convertPostDtoToPost(newPost);
 
         Seller s = new Seller();
         for (Seller se : sellers) {
-            if (se.getUserId() == sellerId) {
+            if (Objects.equals(se.getUserId(), sellerId)) {
                 se.getPosts().add(post);
             }
         }
