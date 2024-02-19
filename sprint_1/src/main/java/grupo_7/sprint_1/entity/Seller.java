@@ -11,10 +11,7 @@ import java.util.List;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-
-
 public class Seller extends User{
-
-    List<Buyer> followersList;
-    List<Post> postList;
+    List<Buyer> followers;
+    List<Post> posts;
 }
