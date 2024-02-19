@@ -19,18 +19,20 @@ public class SellerController {
         this.sellerService = sellerService;
     }
 
-    @PostMapping("/products/post/{sellerId}")
-    public ResponseEntity<?> postPost(@PathVariable Integer sellerId,
-                                      @RequestBody PostPostDto newPost) {
-        return new ResponseEntity<>(sellerService.postPost(sellerId, newPost), HttpStatus.OK);
+    //TODO: anda (gracias dios)
+    @PostMapping("/products/post")
+    public ResponseEntity<?> postPost(@RequestBody PostPostDto newPost) {
+        return new ResponseEntity<>(sellerService.postPost(newPost.userId(), newPost), HttpStatus.OK);
     }
 
+    //TODO: ANDA XD
     @GetMapping("/users/{userId}/followers/list")
     public ResponseEntity<SellerFollowersListDto> getFollowersList(@PathVariable Integer userId, boolean orderAsc) {
 
         return ResponseEntity.ok(sellerService.getListOrderedAlphabetically(userId, orderAsc));
     }
 
+    //TODO: ANDA
     @GetMapping("/users/{userId}/followers/count")
     public ResponseEntity<SellerDTO> getFollowersCount(@PathVariable int userId) {
         try {

@@ -17,6 +17,7 @@ import grupo_7.sprint_1.exception.BadRequestException;
 import grupo_7.sprint_1.repository.IBuyerRepository;
 import grupo_7.sprint_1.repository.ISellerRepository;
 import grupo_7.sprint_1.utils.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Comparator;
 import java.util.List;
@@ -28,6 +29,11 @@ public class BuyerServiceImp implements IBuyerService {
     IBuyerRepository buyerRepository;
     ISellerRepository sellerRepository;
 
+    public BuyerServiceImp(IBuyerRepository buyerRepository, ISellerRepository sellerRepository) {
+        this.buyerRepository = buyerRepository;
+        this.sellerRepository = sellerRepository;
+    }
+
     @Override
     public GenericResponseDTO followSeller(Integer buyerId, Integer sellerId) {
         Buyer buyer = buyerRepository.findBuyerById(buyerId);
@@ -35,11 +41,11 @@ public class BuyerServiceImp implements IBuyerService {
             throw new BadRequestException("El comprador no existe");
         }
         Optional<Seller> seller = sellerRepository.findById(sellerId);
-        if (seller == null) {
+        if (seller.isEmpty()) {
             throw new BadRequestException("El vendedor no existe");
         }
         List<Seller> followedList = buyer.getFollowed();
-        if (followedList.contains(seller)) {
+        if (followedList.stream().filter(s -> s.getUserId().equals(sellerId)).findFirst().isPresent()) {
             throw new BadRequestException("El vendedor ya está en la lista de seguidos");
         }
         followedList.add(seller.get());
@@ -75,10 +81,5 @@ public class BuyerServiceImp implements IBuyerService {
         } else {
             return new MessageDto("Se eliminó de seguidores correctamente");
         }
-    }
-
-    @Override
-    public BuyerDto getById(int id) {
-        return null;
     }
 }

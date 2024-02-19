@@ -2,11 +2,9 @@ package grupo_7.sprint_1.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import grupo_7.sprint_1.dtos.BuyerDto;
-import grupo_7.sprint_1.dtos.PostPostDto;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import grupo_7.sprint_1.entity.Buyer;
-import grupo_7.sprint_1.entity.Post;
-import grupo_7.sprint_1.entity.Seller;
 import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.utils.Mapper;
 import org.springframework.stereotype.Repository;
@@ -14,6 +12,8 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +23,8 @@ public class BuyerRepositoryImp implements IBuyerRepository {
     Mapper mapper;
     private List<Buyer> buyerList = new ArrayList<>();
 
-   public BuyerRepositoryImp(Mapper mapper) throws IOException {
-        this.mapper = mapper;
-        this.buyerList = loadBuyers();
+    public BuyerRepositoryImp() throws IOException {
+        loadBuyers();
     }
 
     @Override
@@ -42,7 +41,6 @@ public class BuyerRepositoryImp implements IBuyerRepository {
         buyerList.add(buyer);
     }
 
-    // busco la lista de los seguidos del comrpador por ID
     @Override
     public Buyer getById(int id) {
         Buyer buyer = buyerList.stream()
@@ -54,22 +52,25 @@ public class BuyerRepositoryImp implements IBuyerRepository {
             throw new NotFoundException("No se encuentra el id del comprador");
         }
         return buyer;
-        // buyerDto.setSellerList(buyer.getSellerList());
-
-
-        //return buyerDto;
     }
 
-    private List<Buyer> loadBuyers() throws IOException {
+    private void loadBuyers() throws IOException {
         File file;
         ObjectMapper objectMapper = new ObjectMapper();
         List<Buyer> mappedBuyers;
 
-        file = ResourceUtils.getFile("classpath:buyers.json");
-        mappedBuyers = objectMapper.readValue(file, new TypeReference<List<Buyer>>() {
-        });
+        try {
+            file = ResourceUtils.getFile("classpath:buyers.json");
 
-        return mappedBuyers;
+            objectMapper.registerModule(new JavaTimeModule());
+            objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+            objectMapper.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
+            mappedBuyers = objectMapper.readValue(file, new TypeReference<List<Buyer>>() {
+            });
+            buyerList = mappedBuyers;
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            System.out.println(LocalDate.now());
+        }
     }
-
 }

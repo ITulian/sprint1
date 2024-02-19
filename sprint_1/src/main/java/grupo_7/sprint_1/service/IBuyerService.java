@@ -8,5 +8,4 @@ public interface IBuyerService {
     BuyerDto getBuyerfollow(Integer buyer,String order);
     GenericResponseDTO followSeller(Integer buyerId, Integer sellerId);
     MessageDto unfollowSeller(int idUser, int userIdToUnfollow);
-    BuyerDto getById(int id);
 }
