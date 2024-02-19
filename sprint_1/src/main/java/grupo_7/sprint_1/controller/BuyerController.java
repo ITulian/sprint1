@@ -5,9 +5,7 @@ import grupo_7.sprint_1.service.BuyerServiceImp;
 import grupo_7.sprint_1.service.IBuyerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BuyerController {
@@ -21,5 +19,9 @@ public class BuyerController {
     @PostMapping("/products/post")
     public ResponseEntity<?> postPost(@RequestBody PostPostDto newPost) {
         return new ResponseEntity<>(buyerService.postPost(newPost), HttpStatus.OK);
+    }
+    @GetMapping("/users/{userid}/followed/list")
+    public ResponseEntity<?> getfollowedlist(@PathVariable int userid){
+        return new ResponseEntity<>(buyerService.getBuyerfollow(userid),HttpStatus.OK);
     }
 }
