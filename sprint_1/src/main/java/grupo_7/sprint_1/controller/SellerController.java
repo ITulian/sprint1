@@ -1,6 +1,7 @@
 package grupo_7.sprint_1.controller;
 
 import grupo_7.sprint_1.dtos.PostPostDto;
+import grupo_7.sprint_1.dtos.SellerFollowersListDto;
 import grupo_7.sprint_1.service.ISellerService;
 import grupo_7.sprint_1.service.SellerServiceImp;
 import org.springframework.http.HttpStatus;
@@ -21,5 +22,11 @@ public class SellerController {
     public ResponseEntity<?> postPost(@PathVariable(name = "seller_id") Integer sellerId,
                                       @RequestBody PostPostDto newPost) {
         return new ResponseEntity<>(sellerService.postPost(sellerId, newPost), HttpStatus.OK);
+    }
+
+    @GetMapping("/users/{userId}/followers/list")
+    public ResponseEntity<SellerFollowersListDto> getFollowersList (@PathVariable Integer userId, boolean orderAsc){
+
+        return ResponseEntity.ok(sellerService.getListOrderedAlphabetically(userId, orderAsc));
     }
 }

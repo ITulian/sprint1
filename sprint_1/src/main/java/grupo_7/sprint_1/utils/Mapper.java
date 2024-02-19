@@ -1,9 +1,6 @@
 package grupo_7.sprint_1.utils;
 
-import grupo_7.sprint_1.dtos.BuyerDto;
-import grupo_7.sprint_1.dtos.PostDto;
-import grupo_7.sprint_1.dtos.PostPostDto;
-import grupo_7.sprint_1.dtos.ProductDto;
+import grupo_7.sprint_1.dtos.*;
 import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.entity.Product;
@@ -55,8 +52,12 @@ public class Mapper {
         return new BuyerDto(
                 buyer.getUserId(),
                 buyer.getUserName(),
-                buyer.getSellerList()
+                buyer.getFollowed()
         );
+    }
+
+    public static BuyerDtoRequisito3 convertListToDto (Buyer buyerList){
+        return new BuyerDtoRequisito3(buyerList.getUserId(),buyerList.getUserName());
     }
 }
 

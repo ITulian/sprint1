@@ -7,7 +7,6 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Builder
 
 public abstract class User {
     Integer userId;

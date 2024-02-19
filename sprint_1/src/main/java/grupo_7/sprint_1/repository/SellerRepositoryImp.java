@@ -3,6 +3,7 @@ package grupo_7.sprint_1.repository;
 import grupo_7.sprint_1.dtos.PostPostDto;
 import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.entity.Seller;
+import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.utils.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -26,10 +27,17 @@ public class SellerRepositoryImp implements ISellerRepository {
         Seller s = new Seller();
         for (Seller se : sellers) {
             if (se.getUserId() == sellerId) {
-                se.getPostList().add(post);
+                se.getPosts().add(post);
             }
         }
 
         return post;
+    }
+
+    public Seller findById(Integer userId) {
+        return sellers.stream()
+                .filter(seller -> seller.getUserId().equals(userId))
+                .findFirst()
+                .orElseThrow(() -> new NotFoundException("Seller not found with ID: " + userId));
     }
 }
