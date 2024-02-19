@@ -3,6 +3,7 @@ package grupo_7.sprint_1.controller;
 import grupo_7.sprint_1.dtos.PostPostDto;
 import grupo_7.sprint_1.dtos.SellerDTO;
 import grupo_7.sprint_1.dtos.SellerFollowersListDto;
+import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.service.ISellerService;
 import grupo_7.sprint_1.service.SellerServiceImp;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,11 @@ public class SellerController {
 
     @GetMapping("/users/{userId}/followers/count")
     public ResponseEntity<SellerDTO> getFollowersCount(@PathVariable int userId) {
-        return new ResponseEntity<>(sellerService.cantidadSeguidores(userId), HttpStatus.OK);
+        try {
+            SellerDTO sellerDTO = sellerService.cantidadSeguidores(userId);
+            return new ResponseEntity<>(sellerDTO, HttpStatus.OK);
+        } catch (NotFoundException e) {
+            return  ResponseEntity.notFound().build();
+        }
     }
 }
