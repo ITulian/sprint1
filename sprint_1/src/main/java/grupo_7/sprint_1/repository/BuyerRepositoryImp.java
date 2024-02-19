@@ -4,9 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import grupo_7.sprint_1.dtos.PostPostDto;
 import grupo_7.sprint_1.entity.Buyer;
-import grupo_7.sprint_1.entity.Post;
+import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.utils.Mapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
@@ -21,6 +20,7 @@ import java.util.List;
 @Repository
 public class BuyerRepositoryImp implements IBuyerRepository {
 
+    Mapper mapper;
     private List<Buyer> buyerList = new ArrayList<>();
 
     public BuyerRepositoryImp() throws IOException {
@@ -39,6 +39,19 @@ public class BuyerRepositoryImp implements IBuyerRepository {
     public void updateBuyer(Buyer buyer) {
         buyerList.remove(buyer);
         buyerList.add(buyer);
+    }
+
+    @Override
+    public Buyer getById(int id) {
+        Buyer buyer = buyerList.stream()
+                .filter(buyerFilter -> buyerFilter.getUserId() == id)
+                .findFirst()
+                .orElse(null);
+
+        if(buyer == null) {
+            throw new NotFoundException("No se encuentra el id del comprador");
+        }
+        return buyer;
     }
 
     private void loadBuyers() throws IOException {

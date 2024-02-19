@@ -1,6 +1,13 @@
 package grupo_7.sprint_1.service;
 
 import grupo_7.sprint_1.dtos.BuyerDto;
+import grupo_7.sprint_1.dtos.MessageDto;
+import grupo_7.sprint_1.dtos.PostDto;
+import grupo_7.sprint_1.dtos.PostPostDto;
+import grupo_7.sprint_1.entity.Buyer;
+import grupo_7.sprint_1.entity.Post;
+import grupo_7.sprint_1.entity.Seller;
+
 import grupo_7.sprint_1.dtos.GenericResponseDTO;
 import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.User;
@@ -62,5 +69,17 @@ public class BuyerServiceImp implements IBuyerService {
             return Mapper.convertBuyertoBuyerDto(buyer);
         }
         return null;
+    }
+
+    @Override
+    public MessageDto unfollowSeller(int idUser, int userIdToUnfollow) {
+        List<Seller> buyerFolloweds = buyerRepository.getById(idUser).getFollowed();
+        boolean removeFollow = buyerFolloweds.removeIf(followed -> followed.getUserId() == userIdToUnfollow);
+
+        if(!removeFollow) {
+            throw new NotFoundException("No se encuentra el followed");
+        } else {
+            return new MessageDto("Se eliminó de seguidores correctamente");
+        }
     }
 }

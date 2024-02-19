@@ -75,8 +75,6 @@ public class SellerRepositoryImp implements ISellerRepository {
             System.out.println(e.getMessage());
             System.out.println(LocalDate.now());
         }
-
-
     }
 
 
