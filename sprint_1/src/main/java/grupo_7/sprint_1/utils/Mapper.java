@@ -21,7 +21,7 @@ public class Mapper {
     public static ProductDto convertProductToProductDto(Product product) {
         return new ProductDto(
                 product.getProductId(),
-                product.getProductName(),
+                product.getName(),
                 product.getType(),
                 product.getBrand(),
                 product.getColor(),

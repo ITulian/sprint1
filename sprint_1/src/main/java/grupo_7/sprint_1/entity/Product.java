@@ -10,7 +10,7 @@ import lombok.experimental.FieldDefaults;
 @Builder
 public class Product {
     Integer productId;
-    String productName;
+    String name;
     String type;
     String brand;
     String color;
