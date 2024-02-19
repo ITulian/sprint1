@@ -32,8 +32,7 @@ public class SellerController {
     }
 
     @GetMapping("/users/{userId}/followers/count")
-    public SellerDTO getFollowersCount(@PathVariable int userId) {
-        return sellerService.cantidadSeguidores(userId);
+    public ResponseEntity<SellerDTO> getFollowersCount(@PathVariable int userId) {
+        return new ResponseEntity<>(sellerService.cantidadSeguidores(userId), HttpStatus.OK);
     }
-
 }
