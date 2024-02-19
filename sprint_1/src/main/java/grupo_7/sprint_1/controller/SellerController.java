@@ -8,11 +8,10 @@ import grupo_7.sprint_1.service.ISellerService;
 import grupo_7.sprint_1.service.SellerServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("/sellers")
 public class SellerController {
     ISellerService sellerService;
 
@@ -38,7 +37,7 @@ public class SellerController {
             SellerDTO sellerDTO = sellerService.cantidadSeguidores(userId);
             return new ResponseEntity<>(sellerDTO, HttpStatus.OK);
         } catch (NotFoundException e) {
-            return  ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
     }
 }

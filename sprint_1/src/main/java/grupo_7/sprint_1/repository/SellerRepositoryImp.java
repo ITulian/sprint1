@@ -31,8 +31,8 @@ public class SellerRepositoryImp implements ISellerRepository {
     public Post postPost(Integer sellerId, PostPostDto newPost) {
         Post post = Mapper.convertPostDtoToPost(newPost);
 
-        Seller seller = findById(sellerId);
-        seller.getPosts().add(post);
+        Optional<Seller> foundSeller = findById(sellerId);
+        foundSeller.get().getPosts().add(post);
 
         return post;
     }

@@ -31,7 +31,14 @@ public class SellerServiceImp implements ISellerService {
 
     @Override
     public PostDto postPost(Integer sellerId, PostPostDto newPost) {
+
         isPostValid(newPost);
+
+        Optional<Seller> foundSeller = sellerRepository.findById(sellerId);
+        if (foundSeller.isEmpty()) {
+            throw new NotFoundException("El vendedor indicado no existe.");
+        }
+
         Post post = sellerRepository.postPost(sellerId, newPost);
         return Mapper.convertPostToPostDto(post);
     }
