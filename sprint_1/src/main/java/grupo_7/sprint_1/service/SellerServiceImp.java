@@ -17,7 +17,7 @@ public class SellerServiceImp implements ISellerService {
     }
 
     @Override
-    public PostDto postPost(int sellerId, PostPostDto newPost) {
+    public PostDto postPost(Integer sellerId, PostPostDto newPost) {
         isPostValid(newPost);
         Post post = sellerRepository.postPost(sellerId, newPost);
         return Mapper.convertPostToPostDto(post);

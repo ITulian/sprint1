@@ -4,5 +4,5 @@ import grupo_7.sprint_1.dtos.PostPostDto;
 import grupo_7.sprint_1.entity.Post;
 
 public interface ISellerRepository {
-    Post postPost(int sellerId, PostPostDto newPost);
+    Post postPost(Integer sellerId, PostPostDto newPost);
 }

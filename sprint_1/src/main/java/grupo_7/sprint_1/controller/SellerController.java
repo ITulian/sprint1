@@ -18,7 +18,7 @@ public class SellerController {
     }
 
     @PostMapping("/products/post/{sellerId}")
-    public ResponseEntity<?> postPost(@PathVariable(name = "seller_id") int sellerId,
+    public ResponseEntity<?> postPost(@PathVariable(name = "seller_id") Integer sellerId,
                                       @RequestBody PostPostDto newPost) {
         return new ResponseEntity<>(sellerService.postPost(sellerId, newPost), HttpStatus.OK);
     }

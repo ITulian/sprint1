@@ -12,12 +12,10 @@ import lombok.experimental.FieldDefaults;
 
 
 public class Product {
-
-    int productId;
+    Integer productId;
     String productName;
     String type;
     String brand;
     String color;
     String notes;
-
 }

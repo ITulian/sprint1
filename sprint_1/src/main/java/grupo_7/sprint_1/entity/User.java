@@ -10,7 +10,6 @@ import lombok.experimental.FieldDefaults;
 @Builder
 
 public abstract class User {
-    int userId;
+    Integer userId;
     String userName;
-
 }

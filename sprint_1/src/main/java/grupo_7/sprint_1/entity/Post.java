@@ -12,10 +12,8 @@ import java.time.LocalDate;
 @Builder
 
 public class Post {
-
     Product product;
-    int category;
+    Integer category;
     Double price;
     LocalDate date;
-
 }

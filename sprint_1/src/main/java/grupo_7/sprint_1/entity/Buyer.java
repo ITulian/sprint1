@@ -13,6 +13,5 @@ import java.util.List;
 @Builder
 
 public class Buyer extends User{
-
     List<Seller> sellerList;
 }

@@ -16,21 +16,9 @@ import java.util.Optional;
 public class BuyerServiceImp implements IBuyerService {
     IBuyerRepository buyerRepository;
 
-
     @Override
-    public PostDto postPost(PostPostDto newPost) {
-        isPostValid(newPost);
-        Post post = buyerRepository.postPost(newPost);
-        return Mapper.convertPostToPostDto(post);
-    }
-
-    @Override
-    public BuyerDto getBuyerfollow(int id) {
+    public BuyerDto getBuyerfollow(Integer id) {
         Buyer buyer = buyerRepository.getFollowlist(id);
-
         return Mapper.convertBuyertoBuyerDto(buyer);
-    }
-
-    private void isPostValid(PostPostDto newPost) {
     }
 }

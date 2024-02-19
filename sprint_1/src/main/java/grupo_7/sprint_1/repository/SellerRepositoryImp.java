@@ -20,7 +20,7 @@ public class SellerRepositoryImp implements ISellerRepository {
     }
 
     @Override
-    public Post postPost(int sellerId, PostPostDto newPost) {
+    public Post postPost(Integer sellerId, PostPostDto newPost) {
         Post post = mapper.convertPostDtoToPost(newPost);
 
         Seller s = new Seller();
