@@ -53,7 +53,13 @@ public class Mapper {
         return new BuyerDto(
                 buyer.getUserId(),
                 buyer.getUserName(),
-                buyer.getFollowed()
+                buyer.getFollowed().stream().map(Mapper::convertSellerToSellerDTOlist).toList()
+        );
+    }
+    public static SellerListDto convertSellerToSellerDTOlist(Seller seller) {
+        return new SellerListDto(
+                seller.getUserId(),
+                seller.getUserName()
         );
     }
     public static SellerDTO convertSellerToSllerDTO(Seller seller, int cantidadDeSeguidores) {
