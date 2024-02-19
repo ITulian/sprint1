@@ -6,6 +6,7 @@ import grupo_7.sprint_1.dtos.PostPostDto;
 import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.repository.IBuyerRepository;
+import grupo_7.sprint_1.repository.ISellerRepository;
 import grupo_7.sprint_1.utils.Mapper;
 import org.springframework.stereotype.Service;
 
