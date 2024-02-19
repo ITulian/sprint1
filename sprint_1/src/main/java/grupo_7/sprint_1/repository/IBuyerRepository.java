@@ -6,5 +6,6 @@ import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.entity.Seller;
 
 public interface IBuyerRepository {
-    Buyer getFollowlist (Integer id);
+    Buyer findBuyerById(Integer id);
+    void updateBuyer(Buyer buyer);
 }

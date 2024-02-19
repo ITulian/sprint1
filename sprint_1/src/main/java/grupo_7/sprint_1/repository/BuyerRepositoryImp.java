@@ -16,7 +16,16 @@ public class BuyerRepositoryImp implements IBuyerRepository {
 
 
     @Override
-    public Buyer getFollowlist(Integer id) {
-        return buyerList.get(id);
+    public Buyer findBuyerById(Integer id) {
+        return buyerList.stream()
+                .filter(buyer -> buyer.getUserId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
+    public void updateBuyer(Buyer buyer) {
+        buyerList.remove(buyer);
+        buyerList.add(buyer);
     }
 }

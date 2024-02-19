@@ -19,6 +19,11 @@ public class BuyerController {
         this.buyerService = buyerService;
     }
 
+    @PostMapping("/users/{buyerId}/follow/{sellerId}")
+    public ResponseEntity<?> followSeller(@PathVariable Integer buyerId, @PathVariable Integer sellerId) {
+        return new ResponseEntity<>(buyerService.followSeller(buyerId,sellerId), HttpStatus.OK);
+    }
+
     @GetMapping("/users/{userid}/followed/list")
     public ResponseEntity<?> getfollowedlist(@PathVariable Integer userid, @RequestParam String order) {
         return new ResponseEntity<>(buyerService.getBuyerfollow(userid,order), HttpStatus.OK);
