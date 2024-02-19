@@ -19,7 +19,7 @@ public class BuyerController {
     }
 
     @GetMapping("/users/{userid}/followed/list")
-    public ResponseEntity<?> getfollowedlist(@PathVariable Integer userid) {
-        return new ResponseEntity<>(buyerService.getBuyerfollow(userid), HttpStatus.OK);
+    public ResponseEntity<?> getfollowedlist(@PathVariable Integer userid, @RequestParam String order) {
+        return new ResponseEntity<>(buyerService.getBuyerfollow(userid,order), HttpStatus.OK);
     }
 }
