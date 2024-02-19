@@ -22,7 +22,7 @@ public class SellerRepositoryImp implements ISellerRepository {
     Mapper mapper;
     private List<Seller> sellers = new ArrayList<>();
 
-    public SellerRepositoryImp(Mapper mapper) throws IOException{
+    public SellerRepositoryImp(Mapper mapper) throws IOException {
         this.mapper = mapper;
         this.sellers = loadSellers();
     }
@@ -31,12 +31,8 @@ public class SellerRepositoryImp implements ISellerRepository {
     public Post postPost(Integer sellerId, PostPostDto newPost) {
         Post post = Mapper.convertPostDtoToPost(newPost);
 
-        Seller s = new Seller();
-        for (Seller se : sellers) {
-            if (Objects.equals(se.getUserId(), sellerId)) {
-                se.getPosts().add(post);
-            }
-        }
+        Seller seller = findById(sellerId);
+        seller.getPosts().add(post);
 
         return post;
     }
@@ -46,6 +42,7 @@ public class SellerRepositoryImp implements ISellerRepository {
                 .filter(seller -> seller.getUserId().equals(userId))
                 .findFirst();
     }
+
     public int cantidadDeSeguidores(int userId) {
         for (Seller seller : sellers) {
             if (seller.getUserId() == userId) {
