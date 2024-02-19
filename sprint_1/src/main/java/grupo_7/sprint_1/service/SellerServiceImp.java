@@ -54,7 +54,7 @@ public class SellerServiceImp implements ISellerService {
     @Override
     public SellerDTO cantidadSeguidores(int id){
         Optional<Seller> seller = sellerRepository.findById(id);
-        if (seller.isEmpty()){
+        if (seller.isEmpty()) {
             throw new NotFoundException("No se encontro el vendedor con el id: " + id);
         }
         int followersCount = sellerRepository.cantidadDeSeguidores(id);

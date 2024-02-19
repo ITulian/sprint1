@@ -47,12 +47,11 @@ public class SellerRepositoryImp implements ISellerRepository {
                 .findFirst();
     }
     public int cantidadDeSeguidores(int userId) {
-        for (Seller seller : sellers) {
-            if (seller.getUserId() == userId) {
-                return seller.getFollowers().size();
-            }
-        }
-        return 0;
+        return sellers.stream()
+                .filter(seller -> seller.getUserId() == userId)
+                .findFirst()
+                .map(seller -> seller.getFollowers().size())
+                .orElse(0);
     }
 
     private List<Seller> loadSellers() throws IOException {
