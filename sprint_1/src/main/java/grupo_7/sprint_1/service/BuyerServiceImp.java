@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BuyerServiceImp implements IBuyerService {
@@ -30,7 +31,7 @@ public class BuyerServiceImp implements IBuyerService {
             return Mapper.convertBuyertoBuyerDto(buyer);
         }
         if(order.equals("name_desc")){
-            buyer.setFollowed(buyer.getFollowed().stream().sorted(Comparator.comparing(User::getUserName)).toList().reversed());
+            buyer.setFollowed(buyer.getFollowed().stream().sorted(Comparator.comparing(User::getUserName).reversed()).collect(Collectors.toList()));
             return Mapper.convertBuyertoBuyerDto(buyer);
         }
         return null;

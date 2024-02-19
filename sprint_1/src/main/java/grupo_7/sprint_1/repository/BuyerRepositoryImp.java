@@ -11,12 +11,9 @@ import java.util.List;
 
 @Repository
 public class BuyerRepositoryImp implements IBuyerRepository {
-    Mapper mapper;
+
     private List<Buyer> buyerList = new ArrayList<>();
 
-    public BuyerRepositoryImp(Mapper mapper) {
-        this.mapper = mapper;
-    }
 
     @Override
     public Buyer getFollowlist(Integer id) {
