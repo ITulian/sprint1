@@ -1,5 +1,6 @@
 package grupo_7.sprint_1.controller;
 
+import grupo_7.sprint_1.dtos.PostDto;
 import grupo_7.sprint_1.dtos.PostPostDto;
 import grupo_7.sprint_1.dtos.SellerDTO;
 import grupo_7.sprint_1.dtos.SellerFollowersListDto;
@@ -9,6 +10,10 @@ import grupo_7.sprint_1.service.SellerServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/sellers")
@@ -32,6 +37,11 @@ public class SellerController {
         return ResponseEntity.ok(sellerService.getListOrderedAlphabetically(userId, orderAsc));
     }
 
+    @GetMapping("/users/allsellers")
+    public ResponseEntity<?> getAllSellers() {
+        return ResponseEntity.ok(sellerService.getAllSellers());
+    }
+
     //TODO: ANDA
     @GetMapping("/users/{userId}/followers/count")
     public ResponseEntity<SellerDTO> getFollowersCount(@PathVariable int userId) {
@@ -41,5 +51,10 @@ public class SellerController {
         } catch (NotFoundException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+    @GetMapping("/products/followed/{userId}/list")
+    public ResponseEntity<List<PostDto>> getRecentPostsFromFollowedSellers(@PathVariable Integer userId) {
+        List<PostDto> posts = sellerService.getRecentPostsFromFollowedSellers(userId);
+        return new ResponseEntity<>(posts, HttpStatus.OK);
     }
 }

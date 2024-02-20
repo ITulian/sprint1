@@ -11,4 +11,7 @@ public record PostDto(
         Double price,
         LocalDate date
 ) {
+    public LocalDate getDate() {
+        return this.date;
+    }
 }
