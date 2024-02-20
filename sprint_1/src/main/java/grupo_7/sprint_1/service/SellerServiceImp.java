@@ -131,13 +131,12 @@ public class SellerServiceImp implements ISellerService {
             throw new NotFoundException("El comprador con el ID " + buyerId + " no existe");
         }
         List<Integer> followedSellerIds = buyer.getFollowed().stream()
-                .map(Seller::getUserId)
-                .collect(Collectors.toList());
+                .map(Seller::getUserId).toList();
 
         List<Seller> allSellers = sellerRepository.getAllSellers();
         List<Seller> followedSellers = allSellers.stream()
                 .filter(seller -> followedSellerIds.contains(seller.getUserId()))
-                .collect(Collectors.toList());
+               .toList();
 
         List<PostDto> posts = new ArrayList<>();
         LocalDate dosSemanas = LocalDate.now().minusWeeks(2);
