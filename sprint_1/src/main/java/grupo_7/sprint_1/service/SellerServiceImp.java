@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class SellerServiceImp implements ISellerService {
@@ -125,7 +126,15 @@ public class SellerServiceImp implements ISellerService {
         if (buyer == null) {
             throw new NotFoundException("El comprador con el ID " + buyerId + " no existe");
         }
-        List<Seller> followedSellers = buyer.getFollowed();
+        List<Integer> followedSellerIds = buyer.getFollowed().stream()
+                .map(Seller::getUserId)
+                .collect(Collectors.toList());
+
+        List<Seller> allSellers = sellerRepository.getAllSellers();
+        List<Seller> followedSellers = allSellers.stream()
+                .filter(seller -> followedSellerIds.contains(seller.getUserId()))
+                .collect(Collectors.toList());
+
         List<PostDto> posts = new ArrayList<>();
         LocalDate dosSemanas = LocalDate.now().minusWeeks(2);
         for (Seller seller : followedSellers) {
