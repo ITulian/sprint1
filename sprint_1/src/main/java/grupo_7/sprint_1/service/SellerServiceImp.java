@@ -1,17 +1,11 @@
 package grupo_7.sprint_1.service;
 
-
 import grupo_7.sprint_1.dtos.*;
 import grupo_7.sprint_1.entity.Buyer;
-
-import grupo_7.sprint_1.dtos.PostDto;
-import grupo_7.sprint_1.dtos.PostPostDto;
-import grupo_7.sprint_1.dtos.SellerDTO;
-
 import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.entity.Seller;
-import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.exception.InvalidArgsException;
+import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.repository.IBuyerRepository;
 import grupo_7.sprint_1.repository.ISellerRepository;
 import grupo_7.sprint_1.utils.Mapper;
@@ -126,7 +120,7 @@ public class SellerServiceImp implements ISellerService {
         }
 
         int followersCount = sellerRepository.cantidadDeSeguidores(id);
-        return Mapper.convertSellerToSllerDTO(seller.get(), followersCount);
+        return Mapper.convertSellerToSellerDTO(seller.get(), followersCount);
     }
 
     @Override

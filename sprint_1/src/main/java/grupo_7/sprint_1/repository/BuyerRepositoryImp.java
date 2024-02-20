@@ -5,9 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import grupo_7.sprint_1.entity.Buyer;
-import grupo_7.sprint_1.entity.Seller;
 import grupo_7.sprint_1.exception.NotFoundException;
-import grupo_7.sprint_1.utils.Mapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 

@@ -11,9 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/sellers")
@@ -49,9 +47,10 @@ public class SellerController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @GetMapping("/products/followed/{userId}/list")
-    public ResponseEntity<List<PostDto>> getRecentPostsFromFollowedSellers(@PathVariable Integer userId, @RequestParam String order ) {
-        List<PostDto> posts = sellerService.getRecentPostsFromFollowedSellers(userId,order);
+    public ResponseEntity<List<PostDto>> getRecentPostsFromFollowedSellers(@PathVariable Integer userId, @RequestParam String order) {
+        List<PostDto> posts = sellerService.getRecentPostsFromFollowedSellers(userId, order);
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
 }

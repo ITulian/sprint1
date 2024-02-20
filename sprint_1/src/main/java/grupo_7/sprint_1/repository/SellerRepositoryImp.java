@@ -4,12 +4,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import grupo_7.sprint_1.dtos.PostDto;
 import grupo_7.sprint_1.dtos.PostPostDto;
-import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.entity.Seller;
-import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.utils.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,15 +16,15 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class SellerRepositoryImp implements ISellerRepository {
 
     Mapper mapper;
     private List<Seller> sellers = new ArrayList<>();
-    @Autowired
-    BuyerRepositoryImp buyerRepository;
 
     public SellerRepositoryImp(Mapper mapper) throws IOException {
         this.mapper = mapper;

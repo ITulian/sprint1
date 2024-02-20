@@ -1,24 +1,18 @@
 package grupo_7.sprint_1.service;
 
 import grupo_7.sprint_1.dtos.BuyerDto;
-import grupo_7.sprint_1.dtos.MessageDto;
-import grupo_7.sprint_1.dtos.PostDto;
-import grupo_7.sprint_1.dtos.PostPostDto;
-import grupo_7.sprint_1.entity.Buyer;
-import grupo_7.sprint_1.entity.Post;
-import grupo_7.sprint_1.entity.Seller;
-
 import grupo_7.sprint_1.dtos.GenericResponseDTO;
+import grupo_7.sprint_1.dtos.MessageDto;
 import grupo_7.sprint_1.entity.Buyer;
-import grupo_7.sprint_1.entity.User;
-import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.entity.Seller;
+import grupo_7.sprint_1.entity.User;
 import grupo_7.sprint_1.exception.BadRequestException;
+import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.repository.IBuyerRepository;
 import grupo_7.sprint_1.repository.ISellerRepository;
 import grupo_7.sprint_1.utils.Mapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -55,18 +49,18 @@ public class BuyerServiceImp implements IBuyerService {
     }
 
     @Override
-    public BuyerDto getBuyerfollow(Integer id,String order) {
+    public BuyerDto getBuyerfollow(Integer id, String order) {
         Buyer buyer = buyerRepository.findBuyerById(id);
-        if (buyer == null){
+        if (buyer == null) {
             throw new NotFoundException("el id ingresado no corresponde a ningun comprador");
         }
-        if (order.equals("name_asc")){
+        if (order.equals("name_asc")) {
             buyer.setFollowed(buyer.getFollowed().stream().sorted(Comparator.comparing(User::getUserName)).collect(Collectors.toList()));
-            return Mapper.convertBuyertoBuyerDto(buyer);
+            return Mapper.convertBuyerToBuyerDto(buyer);
         }
-        if(order.equals("name_desc")){
+        if (order.equals("name_desc")) {
             buyer.setFollowed(buyer.getFollowed().stream().sorted(Comparator.comparing(User::getUserName).reversed()).collect(Collectors.toList()));
-            return Mapper.convertBuyertoBuyerDto(buyer);
+            return Mapper.convertBuyerToBuyerDto(buyer);
         }
         return null;
     }
@@ -76,7 +70,7 @@ public class BuyerServiceImp implements IBuyerService {
         List<Seller> buyerFolloweds = buyerRepository.getById(idUser).getFollowed();
         boolean removeFollow = buyerFolloweds.removeIf(followed -> followed.getUserId() == userIdToUnfollow);
 
-        if(!removeFollow) {
+        if (!removeFollow) {
             throw new NotFoundException("No se encuentra el followed");
         } else {
             return new MessageDto("Se eliminó de seguidores correctamente");

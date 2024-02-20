@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class Mapper {
+
     public static PostDto convertPostToPostDto(Post post) {
         return new PostDto(
                 convertProductToProductDto(post.getProduct()),
@@ -49,45 +50,32 @@ public class Mapper {
         );
     }
 
-    public static BuyerDto convertBuyertoBuyerDto(Buyer buyer) {
+    public static BuyerDto convertBuyerToBuyerDto(Buyer buyer) {
         return new BuyerDto(
                 buyer.getUserId(),
                 buyer.getUserName(),
                 buyer.getFollowed().stream().map(Mapper::convertSellerToSellerDTOlist).toList()
         );
     }
+
     public static SellerListDto convertSellerToSellerDTOlist(Seller seller) {
         return new SellerListDto(
                 seller.getUserId(),
                 seller.getUserName()
         );
     }
-    public static SellerDTO convertSellerToSllerDTO(Seller seller, int cantidadDeSeguidores) {
+
+    public static SellerDTO convertSellerToSellerDTO(Seller seller, int cantidadDeSeguidores) {
         return new SellerDTO(
                 seller.getUserId(),
                 seller.getUserName(),
                 cantidadDeSeguidores
         );
     }
-//    public static Link createLink(RequestCreateLinkDTO linkDto, Integer id) {
-//        return Link.builder()
-//                .linkId(id)
-//                .url(linkDto.getUrl())
-//                .password(linkDto.getPassword())
-//                .build();
-//    }
-//
-//    public static LinkResponseDTO createLinkResponseDTO(Link link) {
-//        return LinkResponseDTO.builder()
-//                .linkId(link.getLinkId())
-//                .url(link.getUrl())
-//                .password(link.getPassword())
-//                .timesVisited(link.getTimesVisited())
-//                .build();
-//    }
 
-    public static BuyerDtoRequisito3 convertListToDto (Buyer buyerList){
-        return new BuyerDtoRequisito3(buyerList.getUserId(),buyerList.getUserName());
+    public static BuyerDtoRequisito3 convertListToDto(Buyer buyerList) {
+        return new BuyerDtoRequisito3(buyerList.getUserId(), buyerList.getUserName());
     }
+
 }
 
