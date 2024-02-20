@@ -61,7 +61,7 @@ public class BuyerServiceImp implements IBuyerService {
             throw new NotFoundException("el id ingresado no corresponde a ningun comprador");
         }
         if (order.equals("name_asc")){
-            buyer.setFollowed(buyer.getFollowed().stream().sorted(Comparator.comparing(User::getUserName)).toList());
+            buyer.setFollowed(buyer.getFollowed().stream().sorted(Comparator.comparing(User::getUserName)).collect(Collectors.toList()));
             return Mapper.convertBuyertoBuyerDto(buyer);
         }
         if(order.equals("name_desc")){
