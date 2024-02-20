@@ -10,8 +10,12 @@ import java.util.Optional;
 
 public interface ISellerRepository {
     Post postPost(Integer sellerId, PostPostDto newPost);
-    Optional<Seller> findById (Integer userId);
+
+    Optional<Seller> findById(Integer userId);
+
     int cantidadDeSeguidores(int userId);
 
+    void updateSeller(Seller seller);
 
+    List<Seller> getAllSellers();
 }

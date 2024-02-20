@@ -43,7 +43,10 @@ public class SellerServiceImp implements ISellerService {
             throw new NotFoundException("El vendedor indicado no existe.");
         }
 
-        Post post = sellerRepository.postPost(sellerId, newPost);
+        //Post post = sellerRepository.postPost(sellerId, newPost);
+        Post post = Mapper.convertPostDtoToPost(newPost);
+        foundSeller.get().getPosts().add(post);
+        sellerRepository.updateSeller(foundSeller.get());
         return Mapper.convertPostToPostDto(post);
     }
 
@@ -114,6 +117,7 @@ public class SellerServiceImp implements ISellerService {
         int followersCount = sellerRepository.cantidadDeSeguidores(id);
         return Mapper.convertSellerToSllerDTO(seller.get(), followersCount);
     }
+
     @Override
     public List<PostDto> getRecentPostsFromFollowedSellers(Integer buyerId) {
 
@@ -136,5 +140,10 @@ public class SellerServiceImp implements ISellerService {
         }
         posts.sort(Comparator.comparing(PostDto::getDate).reversed());
         return posts;
+    }
+
+    @Override
+    public List<Seller> getAllSellers() {
+        return sellerRepository.getAllSellers();
     }
 }

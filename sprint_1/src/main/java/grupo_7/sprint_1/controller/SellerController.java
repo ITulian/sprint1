@@ -37,6 +37,11 @@ public class SellerController {
         return ResponseEntity.ok(sellerService.getListOrderedAlphabetically(userId, orderAsc));
     }
 
+    @GetMapping("/users/allsellers")
+    public ResponseEntity<?> getAllSellers() {
+        return ResponseEntity.ok(sellerService.getAllSellers());
+    }
+
     //TODO: ANDA
     @GetMapping("/users/{userId}/followers/count")
     public ResponseEntity<SellerDTO> getFollowersCount(@PathVariable int userId) {

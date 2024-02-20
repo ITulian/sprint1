@@ -28,6 +28,7 @@ public class SellerRepositoryImp implements ISellerRepository {
     private List<Seller> sellers = new ArrayList<>();
     @Autowired
     BuyerRepositoryImp buyerRepository;
+
     public SellerRepositoryImp(Mapper mapper) throws IOException {
         this.mapper = mapper;
         loadSellers();
@@ -36,11 +37,21 @@ public class SellerRepositoryImp implements ISellerRepository {
     @Override
     public Post postPost(Integer sellerId, PostPostDto newPost) {
         Post post = Mapper.convertPostDtoToPost(newPost);
-
         Optional<Seller> foundSeller = findById(sellerId);
         foundSeller.get().getPosts().add(post);
-
+        updateSeller(foundSeller.get());
         return post;
+    }
+
+    @Override
+    public void updateSeller(Seller seller) {
+        sellers.remove(seller);
+        sellers.add(seller);
+    }
+
+    @Override
+    public List<Seller> getAllSellers() {
+        return sellers;
     }
 
     public Optional<Seller> findById(Integer userId) {
@@ -76,7 +87,5 @@ public class SellerRepositoryImp implements ISellerRepository {
             System.out.println(LocalDate.now());
         }
     }
-
-
 }
 
