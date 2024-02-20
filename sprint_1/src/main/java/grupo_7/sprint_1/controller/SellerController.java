@@ -50,8 +50,8 @@ public class SellerController {
         }
     }
     @GetMapping("/products/followed/{userId}/list")
-    public ResponseEntity<List<PostDto>> getRecentPostsFromFollowedSellers(@PathVariable Integer userId) {
-        List<PostDto> posts = sellerService.getRecentPostsFromFollowedSellers(userId);
+    public ResponseEntity<List<PostDto>> getRecentPostsFromFollowedSellers(@PathVariable Integer userId, @RequestParam String order ) {
+        List<PostDto> posts = sellerService.getRecentPostsFromFollowedSellers(userId,order);
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
 }

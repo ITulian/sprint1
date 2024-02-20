@@ -130,7 +130,7 @@ public class SellerServiceImp implements ISellerService {
     }
 
     @Override
-    public List<PostDto> getRecentPostsFromFollowedSellers(Integer buyerId) {
+    public List<PostDto> getRecentPostsFromFollowedSellers(Integer buyerId, String order) {
 
         Buyer buyer = buyerRepository.findBuyerById(buyerId);
         if (buyer == null) {
@@ -157,7 +157,11 @@ public class SellerServiceImp implements ISellerService {
                 }
             }
         }
-        posts.sort(Comparator.comparing(PostDto::getDate).reversed());
+        if (order.equals("date_asc"))
+            posts.sort(Comparator.comparing(PostDto::getDate));
+        if (order.equals("date_desc"))
+            posts.sort(Comparator.comparing(PostDto::getDate).reversed());
+
         return posts;
     }
 

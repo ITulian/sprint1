@@ -12,6 +12,7 @@ public interface ISellerService {
     PostDto postPost(Integer sellerId, PostPostDto newPost);
     SellerFollowersListDto getListOrderedAlphabetically(Integer userId, boolean orderAsc);
     SellerDTO cantidadSeguidores(int userID);
-    List<PostDto> getRecentPostsFromFollowedSellers(Integer buyerId);
+    List<PostDto> getRecentPostsFromFollowedSellers(Integer buyerId, String order);
+
     List<Seller> getAllSellers();
 }
