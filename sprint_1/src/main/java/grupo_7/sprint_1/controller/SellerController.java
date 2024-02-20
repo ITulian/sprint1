@@ -1,7 +1,7 @@
 package grupo_7.sprint_1.controller;
 
+import grupo_7.sprint_1.dtos.AddPostDto;
 import grupo_7.sprint_1.dtos.PostDto;
-import grupo_7.sprint_1.dtos.PostPostDto;
 import grupo_7.sprint_1.dtos.SellerDTO;
 import grupo_7.sprint_1.dtos.SellerFollowersListDto;
 import grupo_7.sprint_1.exception.NotFoundException;
@@ -43,8 +43,8 @@ public class SellerController {
 
     // US 0005: Dar de alta una nueva publicación
     @PostMapping("/products/post")
-    public ResponseEntity<?> postPost(@RequestBody PostPostDto newPost) {
-        return new ResponseEntity<>(sellerService.postPost(newPost.userId(), newPost), HttpStatus.OK);
+    public ResponseEntity<?> addPost(@RequestBody AddPostDto newPost) {
+        return new ResponseEntity<>(sellerService.addPost(newPost.userId(), newPost), HttpStatus.OK);
     }
 
     // US 0006: Obtener un listado de las publicaciones realizadas por los vendedores que un usuario sigue en las
