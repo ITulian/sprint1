@@ -36,9 +36,9 @@ public class SellerController {
     // US 0003: Obtener un listado de todos los usuarios que siguen a un determinado vendedor (¿Quién me sigue?)
     // US 0008: Ordenamiento alfabético ascendente y descendente
     @GetMapping("/users/{userId}/followers/list")
-    public ResponseEntity<SellerFollowersListDto> getFollowersList(@PathVariable Integer userId, boolean orderAsc) {
+    public ResponseEntity<SellerFollowersListDto> getFollowersList(@PathVariable Integer userId, @RequestParam String order) {
 
-        return ResponseEntity.ok(sellerService.getListOrderedAlphabetically(userId, orderAsc));
+        return ResponseEntity.ok(sellerService.getListOrderedAlphabetically(userId, order));
     }
 
     // US 0005: Dar de alta una nueva publicación

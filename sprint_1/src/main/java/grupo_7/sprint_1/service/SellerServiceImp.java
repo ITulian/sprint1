@@ -55,15 +55,22 @@ public class SellerServiceImp implements ISellerService {
     }
 
     @Override
-    public SellerFollowersListDto getListOrderedAlphabetically(Integer userId, boolean orderAsc) {
+    public SellerFollowersListDto getListOrderedAlphabetically(Integer userId, String order) {
         Optional<Seller> seller = sellerRepository.findById(userId);
         if (seller.isEmpty()) {
             throw new NotFoundException("No se encontro el vendedor con el id: " + userId);
         }
-        List<BuyerDtoRequisito3> listBuyerDto = seller.get().getFollowers().stream()
-                .sorted(orderAsc ? Comparator.comparing(Buyer::getUserName) : Comparator.comparing(Buyer::getUserName).reversed())
-                .map(Mapper::convertListToDto)
-                .toList();
+        List<BuyerDtoRequisito3> listBuyerDto;
+        if ("name_asc".equals(order))
+            listBuyerDto = seller.get().getFollowers().stream()
+                    .sorted(Comparator.comparing(Buyer::getUserName))
+                    .map(Mapper::convertListToDto)
+                    .toList();
+        else
+            listBuyerDto = seller.get().getFollowers().stream()
+                    .sorted(Comparator.comparing(Buyer::getUserName).reversed())
+                    .map(Mapper::convertListToDto)
+                    .toList();
 
         return new SellerFollowersListDto(seller.get().getUserId(), seller.get().getUserName(), listBuyerDto);
     }

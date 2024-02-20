@@ -11,7 +11,7 @@ import java.util.List;
 public interface ISellerService {
     PostDto addPost(Integer sellerId, AddPostDto newPost);
 
-    SellerFollowersListDto getListOrderedAlphabetically(Integer userId, boolean orderAsc);
+    SellerFollowersListDto getListOrderedAlphabetically(Integer userId, String order);
 
     SellerDTO cantidadSeguidores(int userID);
 
