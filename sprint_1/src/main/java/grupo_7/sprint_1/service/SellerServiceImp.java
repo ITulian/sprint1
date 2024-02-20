@@ -39,15 +39,25 @@ public class SellerServiceImp implements ISellerService {
 
         isPostValid(newPost);
 
+        List<Seller> sellers = sellerRepository.getAllSellers();
+
+        for (Seller seller : sellers) {
+            for (Post existingPost : seller.getPosts()) {
+                if (existingPost.getProduct().getProductId().equals(newPost.product().productId())) {
+                    throw new InvalidArgsException("Ya existe un producto con el mismo 'product_id'.");
+                }
+            }
+        }
+
         Optional<Seller> foundSeller = sellerRepository.findById(sellerId);
         if (foundSeller.isEmpty()) {
             throw new NotFoundException("El vendedor indicado no existe.");
         }
 
-        //Post post = sellerRepository.postPost(sellerId, newPost);
         Post post = Mapper.convertPostDtoToPost(newPost);
         foundSeller.get().getPosts().add(post);
         sellerRepository.updateSeller(foundSeller.get());
+
         return Mapper.convertPostToPostDto(post);
     }
 

@@ -19,6 +19,7 @@
     "posts": [
       {
         "product": {
+          "productId": 1,
           "productName": "Product_1",
           "type": "Type_1",
           "brand": "Brand_1",
@@ -31,6 +32,7 @@
       },
       {
         "product": {
+          "productId": 2,
           "productName": "Product_2",
           "type": "Type_2",
           "brand": "Brand_2",
@@ -63,6 +65,7 @@
     "posts": [
       {
         "product": {
+          "productId": 3,
           "productName": "Product_3",
           "type": "Type_3",
           "brand": "Brand_3",
@@ -75,6 +78,7 @@
       },
       {
         "product": {
+          "productId": 4,
           "productName": "Product_4",
           "type": "Type_4",
           "brand": "Brand_4",
@@ -107,6 +111,7 @@
     "posts": [
       {
         "product": {
+          "productId": 5,
           "productName": "Product_5",
           "type": "Type_5",
           "brand": "Brand_5",
@@ -119,6 +124,7 @@
       },
       {
         "product": {
+          "productId": 6,
           "productName": "Product_6",
           "type": "Type_6",
           "brand": "Brand_6",
@@ -151,6 +157,7 @@
     "posts": [
       {
         "product": {
+          "productId": 7,
           "productName": "Product_7",
           "type": "Type_7",
           "brand": "Brand_7",
@@ -163,6 +170,7 @@
       },
       {
         "product": {
+          "productId": 8,
           "productName": "Product_8",
           "type": "Type_8",
           "brand": "Brand_8",
@@ -195,6 +203,7 @@
     "posts": [
       {
         "product": {
+          "productId": 9,
           "productName": "Product_9",
           "type": "Type_9",
           "brand": "Brand_9",
@@ -207,6 +216,7 @@
       },
       {
         "product": {
+          "productId": 10,
           "productName": "Product_10",
           "type": "Type_10",
           "brand": "Brand_10",

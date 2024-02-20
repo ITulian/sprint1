@@ -24,13 +24,11 @@ public class SellerController {
         this.sellerService = sellerService;
     }
 
-    //TODO: anda (gracias dios)
     @PostMapping("/products/post")
     public ResponseEntity<?> postPost(@RequestBody PostPostDto newPost) {
         return new ResponseEntity<>(sellerService.postPost(newPost.userId(), newPost), HttpStatus.OK);
     }
 
-    //TODO: ANDA XD
     @GetMapping("/users/{userId}/followers/list")
     public ResponseEntity<SellerFollowersListDto> getFollowersList(@PathVariable Integer userId, boolean orderAsc) {
 
@@ -42,7 +40,6 @@ public class SellerController {
         return ResponseEntity.ok(sellerService.getAllSellers());
     }
 
-    //TODO: ANDA
     @GetMapping("/users/{userId}/followers/count")
     public ResponseEntity<SellerDTO> getFollowersCount(@PathVariable int userId) {
         try {
