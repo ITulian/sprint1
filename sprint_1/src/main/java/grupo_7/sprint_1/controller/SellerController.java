@@ -47,6 +47,10 @@ public class SellerController {
         return new ResponseEntity<>(sellerService.addPost(newPost.userId(), newPost), HttpStatus.OK);
     }
 
+    @GetMapping("/products/promo-post/count")
+    public ResponseEntity<?> getPromoPost(@RequestParam int userId){
+        return new ResponseEntity<>(sellerService.cantidadProductosPromocion(userId),HttpStatus.OK);
+    }
     // US 0006: Obtener un listado de las publicaciones realizadas por los vendedores que un usuario sigue en las
     // últimas dos semanas (para esto tener en cuenta ordenamiento por fecha, publicaciones más recientes primero).
     // US 0009: Ordenamiento por fecha ascendente y descendente
@@ -61,4 +65,9 @@ public class SellerController {
         return ResponseEntity.ok(sellerService.getAllSellers());
     }
 
+
+    @GetMapping("/products/promo-post/list")
+    public ResponseEntity<?> getPromoPostList(@RequestParam int userId){
+        return new ResponseEntity<>(sellerService.listaPostsPromocion(userId),HttpStatus.OK);
+    }
 }

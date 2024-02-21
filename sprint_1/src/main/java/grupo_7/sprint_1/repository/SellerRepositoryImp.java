@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.entity.Seller;
 import grupo_7.sprint_1.utils.Mapper;
 import org.springframework.stereotype.Repository;
@@ -51,6 +52,9 @@ public class SellerRepositoryImp implements ISellerRepository {
                 .findFirst()
                 .map(seller -> seller.getFollowers().size())
                 .orElse(0);
+    }
+    public int cantidadDeProductosPromocion(int userId){
+        return sellers.stream().filter(s -> s.getUserId().equals(userId)).findFirst().map(s -> s.getPosts().stream().filter(Post::isHas_promo).toList().size()).orElse(0);
     }
 
     private void loadSellers() throws IOException {

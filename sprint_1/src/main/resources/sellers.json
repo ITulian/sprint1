@@ -28,6 +28,8 @@
         },
         "category": 1,
         "price": 10.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       },
       {
@@ -41,6 +43,8 @@
         },
         "category": 2,
         "price": 20.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       }
     ]
@@ -74,6 +78,8 @@
         },
         "category": 3,
         "price": 30.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       },
       {
@@ -87,6 +93,8 @@
         },
         "category": 4,
         "price": 40.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       }
     ]
@@ -120,6 +128,8 @@
         },
         "category": 5,
         "price": 50.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       },
       {
@@ -133,6 +143,8 @@
         },
         "category": 6,
         "price": 60.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       }
     ]
@@ -166,6 +178,8 @@
         },
         "category": 7,
         "price": 70.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       },
       {
@@ -179,6 +193,8 @@
         },
         "category": 8,
         "price": 80.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       }
     ]
@@ -212,6 +228,8 @@
         },
         "category": 9,
         "price": 90.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       },
       {
@@ -225,6 +243,8 @@
         },
         "category": 10,
         "price": 100.0,
+        "has_promo": false,
+        "discount": 1.00,
         "date": "2024-01-30"
       }
     ]

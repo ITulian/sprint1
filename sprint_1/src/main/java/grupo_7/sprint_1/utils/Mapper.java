@@ -15,6 +15,8 @@ public class Mapper {
                 convertProductToProductDto(post.getProduct()),
                 post.getCategory(),
                 post.getPrice(),
+                post.isHas_promo(),
+                post.getDiscount(),
                 post.getDate()
         );
     }
@@ -35,7 +37,10 @@ public class Mapper {
                 convertProductDtoToProduct(newPost.product()),
                 newPost.category(),
                 newPost.price(),
+                newPost.has_promo(),
+                newPost.discount(),
                 newPost.date()
+
         );
     }
 
@@ -70,6 +75,20 @@ public class Mapper {
                 seller.getUserId(),
                 seller.getUserName(),
                 cantidadDeSeguidores
+        );
+    }
+    public static SellerPromDto convertSellerToSellerDTOprom(Seller seller, int cantidadDeProductosPromocion) {
+        return new SellerPromDto(
+                seller.getUserId(),
+                seller.getUserName(),
+                cantidadDeProductosPromocion
+        );
+    }
+    public static ListPostSellerDto convertSellerToListPostsProm(Seller seller){
+        return new ListPostSellerDto(
+                seller.getUserId(),
+                seller.getUserName(),
+                seller.getPosts().stream().map(Mapper::convertPostToPostDto).toList()
         );
     }
 

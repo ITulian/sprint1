@@ -14,4 +14,6 @@ public interface ISellerRepository {
     void updateSeller(Seller seller);
 
     List<Seller> getAllSellers();
+
+    int cantidadDeProductosPromocion(int userId);
 }

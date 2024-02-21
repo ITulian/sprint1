@@ -91,6 +91,9 @@ public class SellerServiceImp implements ISellerService {
         if (newPost.price() == null || newPost.price() <= 0) {
             throw new InvalidArgsException("'price' necesita ser un número positivo.");
         }
+        if (newPost.has_promo() && newPost.discount() <= 0) {
+            throw new InvalidArgsException("'discount' necesita ser un número positivo.");
+        }
 
         if (newPost.product() == null) {
             throw new InvalidArgsException("'product' no puede ser null.");
@@ -145,7 +148,7 @@ public class SellerServiceImp implements ISellerService {
                 .toList();
 
         List<PostDto> posts = new ArrayList<>();
-        LocalDate dosSemanas = LocalDate.now().minusWeeks(2);
+        LocalDate dosSemanas = LocalDate.now().minusWeeks(4);
         for (Seller seller : followedSellers) {
             List<Post> sellerPosts = seller.getPosts();
             if (sellerPosts != null) {
@@ -168,4 +171,27 @@ public class SellerServiceImp implements ISellerService {
     public List<Seller> getAllSellers() {
         return sellerRepository.getAllSellers();
     }
-}
+    public SellerPromDto cantidadProductosPromocion(int id) {
+        Optional<Seller> seller = sellerRepository.findById(id);
+        if (seller.isEmpty()) {
+            throw new NotFoundException("No se encontro el vendedor con el id: " + id);
+        }
+
+        int promoPostsCount = sellerRepository.cantidadDeProductosPromocion(id);
+        return Mapper.convertSellerToSellerDTOprom(seller.get(), promoPostsCount);
+    }
+
+    @Override
+    public ListPostSellerDto listaPostsPromocion(int userId) {
+        Optional<Seller> seller = sellerRepository.findById(userId);
+        if (seller.isEmpty()) {
+            throw new NotFoundException("No se encontro el vendedor con el id: " + userId);
+        }
+        seller.get().setPosts(seller.get().getPosts().stream().filter(Post::isHas_promo).toList());
+        return Mapper.convertSellerToListPostsProm(seller.get());
+
+    }
+    }
+
+
+
