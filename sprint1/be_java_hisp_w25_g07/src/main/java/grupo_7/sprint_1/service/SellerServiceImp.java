@@ -4,6 +4,7 @@ import grupo_7.sprint_1.dtos.*;
 import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.Post;
 import grupo_7.sprint_1.entity.Seller;
+import grupo_7.sprint_1.exception.BadRequestException;
 import grupo_7.sprint_1.exception.InvalidArgsException;
 import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.repository.IBuyerRepository;
@@ -135,6 +136,9 @@ public class SellerServiceImp implements ISellerService {
         Buyer buyer = buyerRepository.findBuyerById(buyerId);
         if (buyer == null) {
             throw new NotFoundException("El comprador con el ID " + buyerId + " no existe");
+        }
+        if (order != "date_asc" && order != "date_desc"){
+            throw new BadRequestException("el orden ingresado no es válido");
         }
         List<Integer> followedSellerIds = buyer.getFollowed().stream()
                 .map(Seller::getUserId).toList();
