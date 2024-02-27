@@ -7,6 +7,7 @@
     <list default="true" id="25427308-6b74-4055-a867-a94f7e3a170f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/repository/SellerRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/repository/SellerRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +46,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.BuyerControllerTest.getfollowedListOrderExistTest.executor": "Run",
+    "JUnit.SellerRepositoryTest.cantidadDeSeguidoresTest.executor": "Run",
+    "JUnit.SellerRepositoryTest.findByIdTest.executor": "Run",
+    "JUnit.SellerRepositoryTest.findByIdTest_UserDoesNotExist.executor": "Run",
     "JUnit.SellerServiceTest.cantidadSeguidoresTest.executor": "Run",
     "JUnit.SellerServiceTest.verifyDateFilterExistsException.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -61,56 +65,8 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.SellerRepositoryTest.cantidadDeSeguidoresTest">
-    <configuration name="BuyerServiceTest.getFollowedListOrderExistenceBadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="be_java_hisp_w25_g07" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
-      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
-      <option name="METHOD_NAME" value="getFollowedListOrderExistenceBadTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BuyerServiceTest.getFollowedListOrderExistenceOKTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="be_java_hisp_w25_g07" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
-      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
-      <option name="METHOD_NAME" value="getFollowedListOrderExistenceOKTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SellerRepositoryTest.cantidadDeSeguidoresTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="be_java_hisp_w25_g07" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grupo_7.sprint_1.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.repository" />
-      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.repository.SellerRepositoryTest" />
-      <option name="METHOD_NAME" value="cantidadDeSeguidoresTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SellerServiceTest.cantidadSeguidoresTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SellerServiceTest">
+    <configuration name="SellerServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="be_java_hisp_w25_g07" />
       <extension name="coverage">
         <pattern>
@@ -120,24 +76,15 @@
       </extension>
       <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
       <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.SellerServiceTest" />
-      <option name="METHOD_NAME" value="cantidadSeguidoresTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SellerServiceTest.verifyDateFilterExistsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="repository in be_java_hisp_w25_g07" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="be_java_hisp_w25_g07" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
-      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.SellerServiceTest" />
-      <option name="METHOD_NAME" value="verifyDateFilterExistsException" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/repository" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,13 +97,55 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="&lt;default&gt;" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="grupo_7.sprint_1" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="grupo_7.sprint_1.service" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SellerRepositoryTest.cantidadDeSeguidoresTest" />
-        <item itemvalue="JUnit.SellerServiceTest.cantidadSeguidoresTest" />
-        <item itemvalue="JUnit.SellerServiceTest.verifyDateFilterExistsException" />
-        <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceBadTest" />
-        <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest" />
+        <item itemvalue="JUnit.SellerServiceTest" />
+        <item itemvalue="JUnit.repository in be_java_hisp_w25_g07" />
+        <item itemvalue="TestNG.grupo_7.sprint_1.service" />
+        <item itemvalue="TestNG.grupo_7.sprint_1" />
+        <item itemvalue="TestNG.&lt;default&gt;" />
       </list>
     </recent_temporary>
   </component>
@@ -198,13 +187,22 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java</url>
-          <line>62</line>
-          <properties class="grupo_7.sprint_1.service.SellerServiceTest" method="cantidadSeguidoresTest">
+          <url>file://$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/repository/SellerRepositoryTest.java</url>
+          <line>25</line>
+          <properties class="grupo_7.sprint_1.repository.SellerRepositoryTest" method="cantidadDeSeguidoresTest">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/repository/SellerRepositoryTest.java</url>
+          <line>35</line>
+          <properties class="grupo_7.sprint_1.repository.SellerRepositoryTest" method="findByIdTest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
