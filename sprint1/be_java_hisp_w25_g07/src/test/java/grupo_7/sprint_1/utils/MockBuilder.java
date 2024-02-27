@@ -8,8 +8,8 @@ import java.util.List;
 public class MockBuilder {
     public static Buyer buildMockBuyer() {
         return new Buyer(
-                1,
-                "Buyer_1",
+                11,
+                "Buyer_11",
                 List.of()
         );
     }

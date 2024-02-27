@@ -133,13 +133,15 @@ public class SellerServiceImp implements ISellerService {
     @Override
     public List<PostDto> getRecentPostsFromFollowedSellers(Integer buyerId, String order) {
 
+        if (!order.equals("date_asc") && !order.equals("date_desc")) {
+            throw new BadRequestException("El orden ingresado no es válido.");
+        }
+
         Buyer buyer = buyerRepository.findBuyerById(buyerId);
         if (buyer == null) {
             throw new NotFoundException("El comprador con el ID " + buyerId + " no existe");
         }
-        if (!order.equals("date_asc") && !order.equals("date_desc")) {
-            throw new BadRequestException("El orden ingresado no es válido.");
-        }
+
         List<Integer> followedSellerIds = buyer.getFollowed().stream()
                 .map(Seller::getUserId).toList();
 
