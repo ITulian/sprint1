@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="25427308-6b74-4055-a867-a94f7e3a170f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/SellerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/SellerDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/repository/SellerRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/repository/SellerRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +45,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.BuyerControllerTest.getfollowedListOrderExistTest.executor": "Run",
-    "JUnit.SellerServiceTest.cantidadSeguidoresTest.executor": "Debug",
+    "JUnit.SellerServiceTest.cantidadSeguidoresTest.executor": "Run",
     "JUnit.SellerServiceTest.verifyDateFilterExistsException.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -62,23 +61,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.SellerServiceTest.cantidadSeguidoresTest">
-    <configuration name="BuyerControllerTest.getfollowedListOrderExistTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="be_java_hisp_w25_g07" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grupo_7.sprint_1.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.controller" />
-      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.controller.BuyerControllerTest" />
-      <option name="METHOD_NAME" value="getfollowedListOrderExistTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.SellerRepositoryTest.cantidadDeSeguidoresTest">
     <configuration name="BuyerServiceTest.getFollowedListOrderExistenceBadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="be_java_hisp_w25_g07" />
       <extension name="coverage">
@@ -106,6 +89,22 @@
       <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
       <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
       <option name="METHOD_NAME" value="getFollowedListOrderExistenceOKTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SellerRepositoryTest.cantidadDeSeguidoresTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.repository" />
+      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.repository.SellerRepositoryTest" />
+      <option name="METHOD_NAME" value="cantidadDeSeguidoresTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -153,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SellerRepositoryTest.cantidadDeSeguidoresTest" />
         <item itemvalue="JUnit.SellerServiceTest.cantidadSeguidoresTest" />
         <item itemvalue="JUnit.SellerServiceTest.verifyDateFilterExistsException" />
         <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceBadTest" />
         <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest" />
-        <item itemvalue="JUnit.BuyerControllerTest.getfollowedListOrderExistTest" />
       </list>
     </recent_temporary>
   </component>
@@ -198,10 +197,14 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java</url>
           <line>62</line>
-          <option name="timeStamp" value="5" />
+          <properties class="grupo_7.sprint_1.service.SellerServiceTest" method="cantidadSeguidoresTest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

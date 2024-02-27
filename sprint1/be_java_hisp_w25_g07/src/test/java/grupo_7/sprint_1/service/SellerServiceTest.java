@@ -61,13 +61,13 @@ public class SellerServiceTest {
     @Test
     @DisplayName("T-0007: Verificar que la cantidad de seguidores de un determinado usuario sea correcta.(US-0002)")
     public void cantidadSeguidoresTest() {
-        int id = 1;
+        int userId = 1;
         SellerDTO expected = new SellerDTO();
         expected.setFollowerCount(10);
 
-        when(sellerServiceImp.cantidadSeguidores(id)).thenReturn(expected);
+        when(sellerServiceImp.cantidadSeguidores(userId)).thenReturn(expected);
 
-        SellerDTO actual = sellerServiceImp.cantidadSeguidores(id);
+        SellerDTO actual = sellerServiceImp.cantidadSeguidores(userId);
 
         Assert.assertEquals(expected.getFollowerCount(), actual.getFollowerCount());
     }
