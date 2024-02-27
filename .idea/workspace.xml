@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="25427308-6b74-4055-a867-a94f7e3a170f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/AddPostDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/AddPostDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/exception/ExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/exception/ExceptionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,17 +38,17 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Sprint1Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
