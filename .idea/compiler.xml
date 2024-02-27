@@ -10,6 +10,9 @@
         <module name="be_java_hisp_w25_g07" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sprint_1" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
