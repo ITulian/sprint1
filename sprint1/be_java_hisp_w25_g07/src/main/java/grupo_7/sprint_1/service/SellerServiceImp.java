@@ -137,8 +137,8 @@ public class SellerServiceImp implements ISellerService {
         if (buyer == null) {
             throw new NotFoundException("El comprador con el ID " + buyerId + " no existe");
         }
-        if (order != "date_asc" && order != "date_desc"){
-            throw new BadRequestException("el orden ingresado no es válido");
+        if (!order.equals("date_asc") && !order.equals("date_desc")) {
+            throw new BadRequestException("El orden ingresado no es válido.");
         }
         List<Integer> followedSellerIds = buyer.getFollowed().stream()
                 .map(Seller::getUserId).toList();

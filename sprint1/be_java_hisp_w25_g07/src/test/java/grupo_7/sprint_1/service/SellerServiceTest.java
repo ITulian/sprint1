@@ -2,6 +2,7 @@ package grupo_7.sprint_1.service;
 
 import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.Seller;
+import grupo_7.sprint_1.exception.BadRequestException;
 import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.repository.IBuyerRepository;
 import grupo_7.sprint_1.repository.ISellerRepository;
@@ -14,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +37,8 @@ public class SellerServiceTest {
     @Test
     @DisplayName("T-0005: Verificar que el tipo de ordenamiento por fecha exista (US-0009)")
     void verifyDateFilterExists() throws NotFoundException {
-        Integer buyerId = 1;
-        String invalidOrder = "invalid_order";
-
         assertThrows(NotFoundException.class, () -> {
-            sellerServiceImp.getRecentPostsFromFollowedSellers(buyerId, invalidOrder);
+            sellerServiceImp.getRecentPostsFromFollowedSellers(1, "date_wrong");
         }, "Debe lanzar una excepción cuando se proporciona un tipo de ordenamiento inválido.");
     }
-
 }
