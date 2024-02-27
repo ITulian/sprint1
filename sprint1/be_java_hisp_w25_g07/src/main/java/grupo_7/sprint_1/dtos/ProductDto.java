@@ -2,7 +2,7 @@ package grupo_7.sprint_1.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
 
 public record ProductDto(
         @JsonProperty("product_id")
