@@ -19,9 +19,5 @@ public class BuyerControllerTest {
     @InjectMocks
     BuyerController controller;
 
-    @Test
-    public void getfollowedListOrderExistTest(){
 
-        Assert.assertThrows((Assert.ThrowingRunnable) controller.getfollowedlist(1,"mondongo"));
-    }
 }

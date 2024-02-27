@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25427308-6b74-4055-a867-a94f7e3a170f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/controller/BuyerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/controller/BuyerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/BuyerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/BuyerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/BuyerDtoRequisito3.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/BuyerDtoRequisito3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/controller/BuyerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/controller/BuyerControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/BuyerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/BuyerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +51,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.BuyerControllerTest.getfollowedListOrderExistTest">
+  <component name="RunManager" selected="JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest">
     <configuration name="BuyerControllerTest.getfollowedListOrderExistTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="be_java_hisp_w25_g07" />
       <extension name="coverage">
@@ -72,6 +68,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BuyerServiceTest.getFollowedListOrderExistenceBadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
+      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
+      <option name="METHOD_NAME" value="getFollowedListOrderExistenceBadTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuyerServiceTest.getFollowedListOrderExistenceOKTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
+      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
+      <option name="METHOD_NAME" value="getFollowedListOrderExistenceOKTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Sprint1Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="be_java_hisp_w25_g07" />
@@ -82,6 +110,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest" />
+        <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceBadTest" />
         <item itemvalue="JUnit.BuyerControllerTest.getfollowedListOrderExistTest" />
       </list>
     </recent_temporary>
