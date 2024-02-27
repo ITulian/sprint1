@@ -11,6 +11,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -20,24 +22,11 @@ public class SellerServiceTest {
     @Mock
     SellerServiceImp sellerServiceImp;
 
-    /*@Test
-    @DisplayName("T-0005: Verificar que el tipo de ordenamiento por fecha exista (US-0009) - Excepción")
-    void verifyDateFilterExists() throws NotFoundException {
-        Integer buyerId = 1;
-        String invalidOrder = "date_wrong";
-
-        BadRequestException exception = assertThrows(BadRequestException.class, () -> {
-            sellerServiceImp.getRecentPostsFromFollowedSellers(buyerId, invalidOrder);
-        }, "Debe lanzar una excepción cuando se proporciona un tipo de ordenamiento inválido.");
-
-        assertEquals("El orden ingresado no es válido.", exception.getMessage());
-    }*/
-
     @Test
     @DisplayName("T-0005: Verificar que el tipo de ordenamiento por fecha exista (US-0009) - Éxito")
     public void verifyDateFilterExistsCorrect() {
-        Integer buyerId = 1;
-        String order = "name_asc";
+        Integer buyerId = 11;
+        String order = "order_asc";
 
         try {
             sellerServiceImp.getRecentPostsFromFollowedSellers(buyerId, order);
