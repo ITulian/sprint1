@@ -48,7 +48,7 @@ public class SellerServiceTest {
         }
     }
     @Test
-    @DisplayName("T-0007: Verificar que la cantidad de seguidores de un determinado usuario sea correcta.(US-0002)")
+    @DisplayName("T-0007: Verificar que la cantidad de seguidores de un determinado usuario sea correcta (US-0002) - Éxito")
     public void cantidadSeguidoresTest() {
         int userId = 1;
         SellerDTO expected = new SellerDTO();

@@ -22,7 +22,7 @@ public class SellerRepositoryTest {
     SellerRepositoryImp sellerRepository;
 
     @Test
-    @DisplayName("T-0007: Verificar que la cantidad de seguidores de un determinado usuario sea correcta.(US-0002)")
+    @DisplayName("T-0007: Verificar que la cantidad de seguidores de un determinado usuario sea correcta (US-0002) - Éxito")
     public void cantidadDeSeguidoresTest() {
         int userId = 1;
         int expected = 10;
@@ -32,7 +32,7 @@ public class SellerRepositoryTest {
         assertEquals(expected, actual);
     }
     @Test
-    @DisplayName("Verificar que el usuario a seguir exista. (US-0001)")
+    @DisplayName("T-0001: Verificar que el usuario a seguir exista (US-0001) - Éxito")
     public void findByIdTest() {
         int userId = 1;
         Seller expected = new Seller();
@@ -43,7 +43,7 @@ public class SellerRepositoryTest {
         assertEquals(expected, actual.get());
     }
     @Test
-    @DisplayName("Verificar que el usuario a seguir exista. (US-0001)")
+    @DisplayName("T-0001: Verificar que el usuario a seguir exista (US-0001) - Excepción")
     public void findByIdTest_UserDoesNotExist() {
         int nonExistentUserId = 2;
 

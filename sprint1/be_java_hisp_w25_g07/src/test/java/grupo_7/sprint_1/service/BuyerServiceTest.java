@@ -2,6 +2,7 @@ package grupo_7.sprint_1.service;
 
 import grupo_7.sprint_1.controller.BuyerController;
 import grupo_7.sprint_1.exception.BadRequestException;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,6 +21,7 @@ public class BuyerServiceTest {
     BuyerController controller;
 
     @Test
+    @DisplayName("T-0003: Verificar que el tipo de ordenamiento alfabético exista (US-0008) - Éxito")
     public void getFollowedListOrderExistenceOKTest() {
         int id = 1;
         String order = "name_asc";
@@ -32,6 +34,7 @@ public class BuyerServiceTest {
     }
 
     @Test
+    @DisplayName("T-0003: Verificar que el tipo de ordenamiento alfabético exista (US-0008) - Excepción")
     public void getFollowedListOrderExistenceBadTest() {
         int id = 1;
         String order = "";
