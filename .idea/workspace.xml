@@ -51,7 +51,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest">
+  <component name="RunManager" selected="JUnit.BuyerServiceTest.getFollowedListOrderExistenceBadTest">
     <configuration name="BuyerControllerTest.getfollowedListOrderExistTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="be_java_hisp_w25_g07" />
       <extension name="coverage">
@@ -110,8 +110,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest" />
         <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceBadTest" />
+        <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest" />
         <item itemvalue="JUnit.BuyerControllerTest.getfollowedListOrderExistTest" />
       </list>
     </recent_temporary>

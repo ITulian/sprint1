@@ -36,7 +36,7 @@ public class BuyerServiceTest {
         try {
             service.getBuyerfollow(id,order);
         }catch (BadRequestException e){
-            Assert.assertEquals("getFollowedListOrderExistenceOKTest",e.getMessage());
+            Assert.assertEquals("No se ha ingresado una opcion de ordernamiento valida",e.getMessage());
         }
     }
 }
