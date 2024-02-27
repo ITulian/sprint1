@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25427308-6b74-4055-a867-a94f7e3a170f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/controller/BuyerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/controller/BuyerControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/BuyerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/BuyerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/SellerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/dtos/SellerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,9 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/main/java/grupo_7/sprint_1/service/ISellerService.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -42,8 +46,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.BuyerControllerTest.getfollowedListOrderExistTest.executor": "Run",
+    "JUnit.SellerServiceTest.cantidadSeguidoresTest.executor": "Debug",
+    "JUnit.SellerServiceTest.verifyDateFilterExistsException.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.Sprint1Application.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -51,7 +62,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.BuyerServiceTest.getFollowedListOrderExistenceBadTest">
+  <component name="RunManager" selected="JUnit.SellerServiceTest.cantidadSeguidoresTest">
     <configuration name="BuyerControllerTest.getfollowedListOrderExistTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="be_java_hisp_w25_g07" />
       <extension name="coverage">
@@ -100,6 +111,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SellerServiceTest.cantidadSeguidoresTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
+      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.SellerServiceTest" />
+      <option name="METHOD_NAME" value="cantidadSeguidoresTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SellerServiceTest.verifyDateFilterExistsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
+      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.SellerServiceTest" />
+      <option name="METHOD_NAME" value="verifyDateFilterExistsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Sprint1Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="be_java_hisp_w25_g07" />
@@ -110,6 +153,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SellerServiceTest.cantidadSeguidoresTest" />
+        <item itemvalue="JUnit.SellerServiceTest.verifyDateFilterExistsException" />
         <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceBadTest" />
         <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest" />
         <item itemvalue="JUnit.BuyerControllerTest.getfollowedListOrderExistTest" />
@@ -149,5 +194,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
