@@ -54,6 +54,9 @@ public class BuyerServiceImp implements IBuyerService {
         if (buyer == null) {
             throw new NotFoundException("el id ingresado no corresponde a ningun comprador");
         }
+        if (order != "name_asc" && order != "name_asc"){
+            throw new BadRequestException("No se ha ingresado una opcion de ordernamiento valida");
+        }
         if (order.equals("name_asc")) {
             buyer.setFollowed(buyer.getFollowed().stream().sorted(Comparator.comparing(User::getUserName)).collect(Collectors.toList()));
             return Mapper.convertBuyerToBuyerDto(buyer);

@@ -11,6 +11,7 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class User {
+
     Integer userId;
     String userName;
 }
