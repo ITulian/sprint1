@@ -39,18 +39,6 @@ public class BuyerRepositoryImp implements IBuyerRepository {
         buyerList.add(buyer);
     }
 
-    @Override
-    public Buyer getById(int id) {
-
-        /*if (buyer == null) {
-            throw new NotFoundException("No se encuentra el id del comprador");
-        }*/
-        return buyerList.stream()
-                .filter(buyerFilter -> buyerFilter.getUserId() == id)
-                .findFirst()
-                .orElse(null);
-    }
-
     private void loadBuyers() throws IOException {
         File file;
         ObjectMapper objectMapper = new ObjectMapper();

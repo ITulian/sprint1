@@ -9,7 +9,7 @@ public interface ISellerRepository {
 
     Optional<Seller> findById(Integer userId);
 
-    int cantidadDeSeguidores(int userId);
+    int cantidadDeSeguidoresRepo(int userId);
 
     void updateSeller(Seller seller);
 

@@ -70,7 +70,7 @@ public class BuyerServiceImp implements IBuyerService {
 
     @Override
     public MessageDto unfollowSeller(int idUser, int userIdToUnfollow) {
-        Buyer buyerFolloweds = buyerRepository.getById(idUser);
+        Buyer buyerFolloweds = buyerRepository.findBuyerById(idUser);
 
         if(buyerFolloweds == null) {
             throw new NotFoundException("No se encuentra el id del comprador");
