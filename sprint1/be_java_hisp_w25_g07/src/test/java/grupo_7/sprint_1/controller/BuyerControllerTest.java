@@ -20,22 +20,23 @@ public class BuyerControllerTest {
     @InjectMocks
     BuyerController controller;
 
-
     @Test
     public void unfollowSellerTestOk() {
         // arrange
         int idUser = 11;
         int idUserUnfollow = 1;
-        MessageDto message = new MessageDto("Se ");
-        when(service.unfollowSeller(anyInt(), anyInt())).thenReturn(message);
+        MessageDto devolucion = new MessageDto("Se eliminó de seguidores correctamente");
+        when(service.unfollowSeller(anyInt(), anyInt())).thenReturn(devolucion);
 
         // act
-        ResponseEntity<?> devolucion = controller.unfollowSeller(idUser, idUserUnfollow);
+        var obtained = controller.unfollowSeller(idUser, idUserUnfollow);
 
         // assert
         verify(service, atLeastOnce()).unfollowSeller(idUser, idUserUnfollow);
-        Assertions.assertEquals(devolucion.getBody(), message);
+        Assertions.assertEquals(devolucion, obtained.getBody());
     }
+
+
 
 
 }
