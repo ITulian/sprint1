@@ -5,8 +5,10 @@ import grupo_7.sprint_1.dtos.SellerDTO;
 import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.Seller;
 import grupo_7.sprint_1.exception.BadRequestException;
+import grupo_7.sprint_1.repository.BuyerRepositoryImp;
 import grupo_7.sprint_1.repository.IBuyerRepository;
 import grupo_7.sprint_1.repository.ISellerRepository;
+import grupo_7.sprint_1.repository.SellerRepositoryImp;
 import grupo_7.sprint_1.utils.MockBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,31 +27,32 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-@SpringBootTest
+
 @ExtendWith(MockitoExtension.class)
 public class SellerServiceTest {
 
-    @Mock
-    SellerServiceImp sellerServiceImp;
+    @InjectMocks
+    private SellerServiceImp sellerServiceImp;
 
     @Mock
-    IBuyerRepository buyerRepository;
+    private BuyerRepositoryImp buyerRepository;
 
     @Mock
-    ISellerRepository sellerRepository;
-
+    private SellerRepositoryImp sellerRepository;
 
     @Test
     @DisplayName("T-0005: Verificar que el tipo de ordenamiento por fecha exista (US-0009) - Éxito")
     public void verifyDateFilterExistsCorrect() {
         Integer buyerId = 11;
-        String order = "order_asc";
+        String order = "date_asc";
+        List<Seller> lista = MockBuilder.mockSellers();
+        Buyer buyer = MockBuilder.mockBuyerForSeller();
 
-        try {
-            sellerServiceImp.getRecentPostsFromFollowedSellers(buyerId, order);
-        } catch (BadRequestException e) {
-            Assert.assertEquals("Este test no debería lanzar una excepción", e.getMessage());
-        }
+        when(buyerRepository.findBuyerById(buyerId)).thenReturn(buyer);
+        when(sellerRepository.getAllSellers()).thenReturn(lista);
+
+        List<PostDto> post = sellerServiceImp.getRecentPostsFromFollowedSellers(buyerId, order);
+        assertEquals(post.size(), 3);
     }
 
     @Test
@@ -57,13 +60,10 @@ public class SellerServiceTest {
     public void verifyDateFilterExistsException() {
         Integer buyerId = 1;
         String order = "";
-
-        try {
-            sellerServiceImp.getRecentPostsFromFollowedSellers(buyerId, order);
-        } catch (BadRequestException e) {
-            Assert.assertEquals("El orden ingresado no es válido.", e.getMessage());
-        }
+        when(buyerRepository.findBuyerById(buyerId)).thenReturn(new Buyer());
+        assertThrows(BadRequestException.class, () -> sellerServiceImp.getRecentPostsFromFollowedSellers(buyerId, order));
     }
+
     @Test
     @DisplayName("T-0007: Verificar que la cantidad de seguidores de un determinado usuario sea correcta (US-0002) - Éxito")
     public void cantidadSeguidoresTest() {
@@ -79,7 +79,6 @@ public class SellerServiceTest {
     }
 
     @Test
-    @MockitoSettings(strictness = Strictness.LENIENT)
     @DisplayName("T-0006: Verificar que el tipo de ordenamiento por fecha ascendente sea correcto (US-0008)")
     public void verifyDateAscFilterIsCorrect() {
         Integer buyerId = 1;
@@ -102,7 +101,6 @@ public class SellerServiceTest {
     }
 
     @Test
-    @MockitoSettings(strictness = Strictness.LENIENT)
     @DisplayName("T-0006: Verificar que el tipo de ordenamiento por fecha descendente sea correcto (US-0008)")
     public void verifyDateDescFilterIsCorrect() {
         Integer buyerId = 1;
