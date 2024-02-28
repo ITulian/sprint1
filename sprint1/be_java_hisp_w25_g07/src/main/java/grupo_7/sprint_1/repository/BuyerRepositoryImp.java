@@ -41,15 +41,14 @@ public class BuyerRepositoryImp implements IBuyerRepository {
 
     @Override
     public Buyer getById(int id) {
-        Buyer buyer = buyerList.stream()
+
+        /*if (buyer == null) {
+            throw new NotFoundException("No se encuentra el id del comprador");
+        }*/
+        return buyerList.stream()
                 .filter(buyerFilter -> buyerFilter.getUserId() == id)
                 .findFirst()
                 .orElse(null);
-
-        if (buyer == null) {
-            throw new NotFoundException("No se encuentra el id del comprador");
-        }
-        return buyer;
     }
 
     private void loadBuyers() throws IOException {

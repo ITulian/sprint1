@@ -1,6 +1,8 @@
 package grupo_7.sprint_1.controller;
 
+import grupo_7.sprint_1.dtos.MessageDto;
 import grupo_7.sprint_1.service.BuyerServiceImp;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -10,7 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.testng.Assert;
 
-@SpringBootTest
+import static org.mockito.Mockito.*;
+
 @ExtendWith(MockitoExtension.class)
 public class BuyerControllerTest {
 
@@ -18,6 +21,24 @@ public class BuyerControllerTest {
     BuyerServiceImp service;
     @InjectMocks
     BuyerController controller;
+
+
+    @Test
+    public void unfollowSellerTestOk() {
+        // arrange
+        int idUser = 11;
+        int idUserUnfollow = 1;
+        MessageDto message = new MessageDto("Se ");
+        when(service.unfollowSeller(anyInt(), anyInt())).thenReturn(message);
+
+        // act
+        ResponseEntity<?> devolucion = controller.unfollowSeller(idUser, idUserUnfollow);
+
+        // assert
+        verify(service, atLeastOnce()).unfollowSeller(idUser, idUserUnfollow);
+        Assertions.assertEquals(devolucion.getBody(), message);
+    }
+
 
 
 }
