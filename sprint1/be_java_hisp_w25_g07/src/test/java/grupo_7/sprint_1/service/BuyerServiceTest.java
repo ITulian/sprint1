@@ -1,10 +1,7 @@
 package grupo_7.sprint_1.service;
 
-import grupo_7.sprint_1.controller.BuyerController;
 import grupo_7.sprint_1.dtos.BuyerDto;
 import grupo_7.sprint_1.dtos.MessageDto;
-import grupo_7.sprint_1.dtos.SellerDTO;
-import grupo_7.sprint_1.dtos.SellerListDto;
 import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.Seller;
 import grupo_7.sprint_1.exception.BadRequestException;
@@ -22,7 +19,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -30,11 +26,8 @@ import java.util.Optional;
 
 import static grupo_7.sprint_1.utils.MockBuilder.mockBuyer;
 import static grupo_7.sprint_1.utils.MockBuilder.mockBuyerDto;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
@@ -55,7 +48,7 @@ public class BuyerServiceTest {
 
     @Test
     @DisplayName("unfollow test ok")
-    public void unfollowSellerTestOk(){
+    public void unfollowSellerTestOk() {
         // arrange
         int idUsuario = 11;
         int idUnfollow = 1;
@@ -97,7 +90,7 @@ public class BuyerServiceTest {
 
     @Test
     @DisplayName("unfollow bad test seller no existe")
-    public void unfollowSelleNoExistFollowedBadTest () {
+    public void unfollowSelleNoExistFollowedBadTest() {
         // arrange
         int idUsuario = 11;
         int idUnfollow = 1;
@@ -126,6 +119,7 @@ public class BuyerServiceTest {
             buyerServiceImp.followSeller(buyerId, sellerId);
         });
     }
+
     @Test
     @DisplayName("T-0001:  Verificar que el usuario a seguir exista. (US-0001) - Éxito")
     public void followSellerSuccess() {
@@ -141,6 +135,7 @@ public class BuyerServiceTest {
             buyerServiceImp.followSeller(buyerId, sellerId);
         });
     }
+
     @Test
     @DisplayName("T-0003: Verificar que el tipo de ordenamiento alfabético exista (US-0008) - Excepción")
     public void getFollowedListOrderExistenceBadTest() {
