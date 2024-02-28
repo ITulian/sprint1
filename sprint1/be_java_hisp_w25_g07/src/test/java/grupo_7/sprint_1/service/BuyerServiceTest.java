@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
 import static grupo_7.sprint_1.utils.MockBuilder.mockBuyer;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -145,15 +146,15 @@ public class BuyerServiceTest {
     public void getFollowedListOrderExistenceBadTest() {
         int id = 1;
         String order = "";
-        try {
+        when(buyerRepositoryImp.findBuyerById(id)).thenReturn(mockBuyer());
+        assertThrows(BadRequestException.class, () -> {
             buyerServiceImp.getBuyerfollow(id, order);
-        } catch (BadRequestException e) {
-            Assert.assertEquals("No se ha ingresado una opción de ordenamiento válida", e.getMessage());
-        }
+        });
+
     }
 
     @Test
-    @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético exista (US-0008) - Éxito")
+    @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético funcione correctamente (US-0008) - Éxito")
     public void getFollowedListOrderAscExistenceOKTest() {
         // arrange
         Integer id = 11;
@@ -167,7 +168,7 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético invertido exista (US-0008) - Éxito")
+    @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético invertido funcione correctamente (US-0008) - Éxito")
     public void getFollowedListOrderDescExistenceOKTest() {
         // arrange
         Integer id = 11;
