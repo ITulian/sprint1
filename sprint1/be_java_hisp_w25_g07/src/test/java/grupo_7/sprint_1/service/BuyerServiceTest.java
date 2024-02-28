@@ -28,9 +28,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import static grupo_7.sprint_1.utils.MockBuilder.mockBuyer;
+import static grupo_7.sprint_1.utils.MockBuilder.mockBuyerDto;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -74,7 +77,7 @@ public class BuyerServiceTest {
         var obtained = buyerServiceImp.unfollowSeller(idUsuario, idUnfollow);
 
         // assert
-        Assertions.assertEquals(devolucion, obtained);
+        assertEquals(devolucion, obtained);
     }
 
     @Test
@@ -110,55 +113,6 @@ public class BuyerServiceTest {
 
     }
 
-    @Test
-    @DisplayName("T-0003: Verificar que el tipo de ordenamiento alfabético exista (US-0008) - Éxito")
-    public void getFollowedListOrderExistenceOKTest() {
-//        int id = 1;
-//        String order = "name_asc";
-//
-//        try {
-//            buyerServiceImp.getBuyerfollow(id, order);
-//        } catch (BadRequestException e) {
-//            Assert.assertEquals("No deberia tirar excepcion", e.getMessage());
-//        }
-
-        // arrange
-        Integer id = 11;
-        String order = "name_asc";
-
-        List<Seller> vendedoresSeguidos = new ArrayList<>();
-        Seller seller = new Seller();
-        seller.setUserId(1);
-        seller.setUserName("carlos");
-        vendedoresSeguidos.add(seller);
-
-        Seller seller2 = new Seller();
-        seller2.setUserId(2);
-        seller2.setUserName("zara");
-        vendedoresSeguidos.add(seller2);
-
-        Buyer buyer = new Buyer();
-        buyer.setUserId(11);
-        buyer.setUserName("sergio");
-        buyer.setFollowed(vendedoresSeguidos);
-
-        SellerListDto sellerListDto = new SellerListDto(1, "carlos");
-        SellerListDto sellerListDto2 = new SellerListDto(2, "zara");
-        List<SellerListDto> listSellerDto = new ArrayList<>();
-        listSellerDto.add(sellerListDto);
-        listSellerDto.add(sellerListDto2);
-
-
-        BuyerDto buyerDtoDevolucion = new BuyerDto(11, "sergio", listSellerDto);
-        when(buyerRepositoryImp.findBuyerById(id)).thenReturn(buyer);
-
-        // act
-        var obtained = buyerServiceImp.getBuyerfollow(id, order);
-
-        // assert
-        Assertions.assertEquals(buyerDtoDevolucion, obtained);
-
-    }
     @Test
     @DisplayName("T-0001: Verificar que el usuario a seguir exista. (US-0001) - Exception")
     public void followSellerThrowsException() {
@@ -197,5 +151,19 @@ public class BuyerServiceTest {
         } catch (BadRequestException e) {
             Assert.assertEquals("No se ha ingresado una opción de ordenamiento válida", e.getMessage());
         }
+    }
+
+    @Test
+    @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético exista (US-0008) - Éxito")
+    public void getFollowedListOrderExistenceOKTest() {
+        // arrange
+        Integer id = 11;
+        String order = "name_asc";
+        when(buyerRepositoryImp.findBuyerById(id)).thenReturn(mockBuyer());
+        BuyerDto buyerDto = mockBuyerDto();
+
+        // act
+        BuyerDto buyerDto2 = buyerServiceImp.getBuyerfollow(id, order);
+        assertEquals(buyerDto, buyerDto2);
     }
 }
