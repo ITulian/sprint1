@@ -70,7 +70,7 @@ public class BuyerServiceImp implements IBuyerService {
 
     @Override
     public MessageDto unfollowSeller(int idUser, int userIdToUnfollow) {
-        List<Seller> buyerFolloweds = buyerRepository.getById(idUser).getFollowed();
+        List<Seller> buyerFolloweds = buyerRepository.findBuyerById(idUser).getFollowed();
         boolean removeFollow = buyerFolloweds.removeIf(followed -> followed.getUserId() == userIdToUnfollow);
 
         if (!removeFollow) {

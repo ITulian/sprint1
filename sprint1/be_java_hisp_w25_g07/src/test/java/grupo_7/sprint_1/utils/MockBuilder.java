@@ -30,9 +30,9 @@ public class MockBuilder {
         return sellers;
     }
 
-    public static Buyer mockBuyerForSeller(){
+    public static Buyer mockBuyerForSeller() {
         Seller seller = new Seller();
         seller.setUserId(1);
-        return new Buyer(1,"Buyer_1",List.of(seller));
+        return new Buyer(1, "Buyer_1", List.of(seller));
     }
 }

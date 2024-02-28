@@ -6,8 +6,6 @@ import grupo_7.sprint_1.entity.Buyer;
 import grupo_7.sprint_1.entity.Seller;
 import grupo_7.sprint_1.exception.BadRequestException;
 import grupo_7.sprint_1.repository.BuyerRepositoryImp;
-import grupo_7.sprint_1.repository.IBuyerRepository;
-import grupo_7.sprint_1.repository.ISellerRepository;
 import grupo_7.sprint_1.repository.SellerRepositoryImp;
 import grupo_7.sprint_1.utils.MockBuilder;
 import org.junit.jupiter.api.DisplayName;
@@ -15,11 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.junit.jupiter.MockitoSettings;
-import org.mockito.quality.Strictness;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
 
 import java.time.LocalDate;
@@ -96,8 +90,8 @@ public class SellerServiceTest {
         List<PostDto> posts = sellerServiceImp.getRecentPostsFromFollowedSellers(buyerId, order);
 
         LocalDate lastDate = null;
-        for(PostDto post : posts) {
-            if(lastDate != null) {
+        for (PostDto post : posts) {
+            if (lastDate != null) {
                 assertTrue(post.getDate().isAfter(lastDate));
             }
             lastDate = post.getDate();
@@ -118,8 +112,8 @@ public class SellerServiceTest {
         List<PostDto> posts = sellerServiceImp.getRecentPostsFromFollowedSellers(buyerId, order);
 
         LocalDate lastDate = null;
-        for(PostDto post : posts) {
-            if(lastDate != null) {
+        for (PostDto post : posts) {
+            if (lastDate != null) {
                 assertTrue(post.getDate().isBefore(lastDate));
             }
             lastDate = post.getDate();

@@ -6,6 +6,4 @@ public interface IBuyerRepository {
     Buyer findBuyerById(Integer id);
 
     void updateBuyer(Buyer buyer);
-
-    Buyer getById(int id);
 }

@@ -9,10 +9,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -31,6 +31,7 @@ public class SellerRepositoryTest {
         int actual = sellerRepository.cantidadDeSeguidoresRepo(userId);
         assertEquals(expected, actual);
     }
+
     @Test
     @DisplayName("T-0001: Verificar que el usuario a seguir exista (US-0001) - Éxito")
     public void findByIdTest() {
@@ -42,6 +43,7 @@ public class SellerRepositoryTest {
         Optional<Seller> actual = sellerRepository.findById(userId);
         assertEquals(expected, actual.get());
     }
+
     @Test
     @DisplayName("T-0001: Verificar que el usuario a seguir exista (US-0001) - Excepción")
     public void findByIdTest_UserDoesNotExist() {
@@ -52,5 +54,33 @@ public class SellerRepositoryTest {
         assertThrows(NotFoundException.class, () -> sellerRepository.findById(nonExistentUserId).orElseThrow(() -> new NotFoundException("User not found")));
     }
 
+    @Test
+    @DisplayName("T-0005: Verificar que el tipo de ordenamiento por fecha exista (US-0009) - Éxito")
+    public void getAllSellersTest() {
+        List<Seller> expectedSellers = List.of(
+                new Seller(),
+                new Seller(),
+                new Seller()
+        );
 
+        when(sellerRepository.getAllSellers()).thenReturn(expectedSellers);
+
+        List<Seller> currentSellers = sellerRepository.getAllSellers();
+
+        assertEquals(expectedSellers, currentSellers);
+    }
+
+    @Test
+    @DisplayName("T-0005: Verificar que el tipo de ordenamiento por fecha exista (US-0009) - Error")
+    public void getAllSellersTestError() {
+        List<Seller> expectedSellers = List.of(
+                new Seller(),
+                new Seller(),
+                new Seller()
+        );
+
+        List<Seller> currentSellers = sellerRepository.getAllSellers();
+
+        assertNotEquals(expectedSellers, currentSellers);
+    }
 }
