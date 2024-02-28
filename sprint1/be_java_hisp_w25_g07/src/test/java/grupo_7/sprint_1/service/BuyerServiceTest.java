@@ -10,6 +10,7 @@ import grupo_7.sprint_1.entity.Seller;
 import grupo_7.sprint_1.exception.BadRequestException;
 import grupo_7.sprint_1.exception.NotFoundException;
 import grupo_7.sprint_1.repository.BuyerRepositoryImp;
+import grupo_7.sprint_1.repository.SellerRepositoryImp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,8 +26,11 @@ import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -40,6 +44,8 @@ public class BuyerServiceTest {
 
     @Mock
     BuyerRepositoryImp buyerRepositoryImp;
+    @Mock
+    SellerRepositoryImp sellerRepository;
 
     @InjectMocks
     BuyerServiceImp buyerServiceImp;
@@ -153,7 +159,34 @@ public class BuyerServiceTest {
         Assertions.assertEquals(buyerDtoDevolucion, obtained);
 
     }
+    @Test
+    @DisplayName("T-0001: Verificar que el usuario a seguir exista. (US-0001) - Exception")
+    public void followSellerThrowsException() {
+        Integer buyerId = 1;
+        Integer sellerId = 2;
+        Buyer buyer = new Buyer();
 
+        when(buyerRepositoryImp.findBuyerById(buyerId)).thenReturn(buyer);
+        when(sellerRepository.findById(sellerId)).thenReturn(Optional.empty());
+        assertThrows(BadRequestException.class, () -> {
+            buyerServiceImp.followSeller(buyerId, sellerId);
+        });
+    }
+    @Test
+    @DisplayName("T-0001:  Verificar que el usuario a seguir exista. (US-0001) - Éxito")
+    public void followSellerSuccess() {
+        Integer buyerId = 1;
+        Integer sellerId = 2;
+        Buyer buyer = new Buyer();
+        buyer.setFollowed(new ArrayList<>());
+        Seller seller = new Seller();
+
+        when(buyerRepositoryImp.findBuyerById(buyerId)).thenReturn(buyer);
+        when(sellerRepository.findById(sellerId)).thenReturn(Optional.of(seller));
+        assertDoesNotThrow(() -> {
+            buyerServiceImp.followSeller(buyerId, sellerId);
+        });
+    }
     @Test
     @DisplayName("T-0003: Verificar que el tipo de ordenamiento alfabético exista (US-0008) - Excepción")
     public void getFollowedListOrderExistenceBadTest() {

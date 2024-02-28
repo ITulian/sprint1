@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="25427308-6b74-4055-a867-a94f7e3a170f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/Sprint1ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/Sprint1ApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/repository/SellerRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/repository/SellerRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/BuyerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/BuyerServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1/be_java_hisp_w25_g07/src/test/java/grupo_7/sprint_1/service/SellerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,32 +45,45 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.BuyerControllerTest.getfollowedListOrderExistTest.executor": "Run",
-    "JUnit.SellerRepositoryTest.cantidadDeSeguidoresTest.executor": "Run",
-    "JUnit.SellerRepositoryTest.findByIdTest.executor": "Run",
-    "JUnit.SellerRepositoryTest.findByIdTest_UserDoesNotExist.executor": "Run",
-    "JUnit.SellerServiceTest.cantidadSeguidoresTest.executor": "Run",
-    "JUnit.SellerServiceTest.verifyDateFilterExistsException.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Sprint1Application.executor": "Run",
-    "TestNG.<default>.executor": "Coverage",
-    "TestNG.grupo_7.sprint_1.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.BuyerControllerTest.getfollowedListOrderExistTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BuyerServiceTest.followSellerSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BuyerServiceTest.followSellerThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BuyerServiceTest.followSeller_sellerDoesNotExist_throwsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BuyerServiceTest.followSeller_sellerExists_success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BuyerServiceTest.getFollowedListOrderExistenceBadTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SellerRepositoryTest.cantidadDeSeguidoresTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SellerRepositoryTest.findByIdTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SellerRepositoryTest.findByIdTest_UserDoesNotExist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SellerServiceTest.cantidadSeguidoresTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SellerServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SellerServiceTest.verifyDateDescFilterIsCorrect.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SellerServiceTest.verifyDateFilterExistsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.controller in be_java_hisp_w25_g07.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.repository in be_java_hisp_w25_g07.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.sprint_1 in be_java_hisp_w25_g07.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Sprint1Application.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.&lt;default&gt;.executor&quot;: &quot;Coverage&quot;,
+    &quot;TestNG.grupo_7.sprint_1.controller.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.grupo_7.sprint_1.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.grupo_7.sprint_1.repository.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.SellerServiceTest">
-    <configuration name="BuyerServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+}</component>
+  <component name="RunManager" selected="JUnit.BuyerServiceTest.followSellerSuccess">
+    <configuration name="BuyerServiceTest.followSellerSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="be_java_hisp_w25_g07" />
       <extension name="coverage">
         <pattern>
@@ -83,27 +93,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
       <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="followSellerSuccess" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SellerRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="be_java_hisp_w25_g07" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grupo_7.sprint_1.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.repository" />
-      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.repository.SellerRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SellerServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BuyerServiceTest.followSellerThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="be_java_hisp_w25_g07" />
       <extension name="coverage">
         <pattern>
@@ -112,8 +108,57 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
-      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.SellerServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
+      <option name="METHOD_NAME" value="followSellerThrowsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuyerServiceTest.followSeller_sellerExists_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
+      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
+      <option name="METHOD_NAME" value="followSeller_sellerExists_success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuyerServiceTest.getFollowedListOrderExistenceBadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
+      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
+      <option name="METHOD_NAME" value="getFollowedListOrderExistenceBadTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuyerServiceTest.getFollowedListOrderExistenceOKTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="be_java_hisp_w25_g07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grupo_7.sprint_1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grupo_7.sprint_1.service" />
+      <option name="MAIN_CLASS_NAME" value="grupo_7.sprint_1.service.BuyerServiceTest" />
+      <option name="METHOD_NAME" value="getFollowedListOrderExistenceOKTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,39 +171,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="&lt;default&gt;" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="be_java_hisp_w25_g07" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="PACKAGE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="grupo_7.sprint_1" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="be_java_hisp_w25_g07" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grupo_7.sprint_1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="grupo_7.sprint_1" />
-      <option name="TEST_OBJECT" value="PACKAGE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SellerServiceTest" />
-        <item itemvalue="JUnit.BuyerServiceTest" />
-        <item itemvalue="JUnit.SellerRepositoryTest" />
-        <item itemvalue="TestNG.grupo_7.sprint_1" />
-        <item itemvalue="TestNG.&lt;default&gt;" />
+        <item itemvalue="JUnit.BuyerServiceTest.followSellerSuccess" />
+        <item itemvalue="JUnit.BuyerServiceTest.followSellerThrowsException" />
+        <item itemvalue="JUnit.BuyerServiceTest.followSeller_sellerExists_success" />
+        <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceBadTest" />
+        <item itemvalue="JUnit.BuyerServiceTest.getFollowedListOrderExistenceOKTest" />
       </list>
     </recent_temporary>
   </component>
@@ -166,7 +185,6 @@
     <attachedChunks>
       <set>
         <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
-        <option value="jdk-21.0.2-temurin-21.0.2-4caba194b151-767920ab" />
       </set>
     </attachedChunks>
   </component>
@@ -179,6 +197,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709036943297</updated>
       <workItem from="1709036945101" duration="232000" />
+      <workItem from="1709143539382" duration="58000" />
     </task>
     <servers />
   </component>
@@ -197,10 +216,12 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/sprint1$grupo_7_sprint_1.ic" NAME="grupo_7.sprint_1 Coverage Results" MODIFIED="1709067314133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/sprint1$controller_in_be_java_hisp_w25_g07.ic" NAME="controller in be_java_hisp_w25_g07 Coverage Results" MODIFIED="1709134100330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sprint1$sprint_1_in_be_java_hisp_w25_g07.ic" NAME="sprint_1 in be_java_hisp_w25_g07 Coverage Results" MODIFIED="1709124368479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sprint1$All_in_be_java_hisp_w25_g07.ic" NAME="All in be_java_hisp_w25_g07 Coverage Results" MODIFIED="1709067021920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sprint1$_default_.ic" NAME="&lt;default&gt; Coverage Results" MODIFIED="1709067261718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sprint1$grupo_7_sprint_1.ic" NAME="grupo_7.sprint_1 Coverage Results" MODIFIED="1709124360742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>grupo_7.sprint_1.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/sprint1$_default_.ic" NAME="&lt;default&gt; Coverage Results" MODIFIED="1709067261718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/sprint1$All_in_be_java_hisp_w25_g07.ic" NAME="All in be_java_hisp_w25_g07 Coverage Results" MODIFIED="1709067021920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
