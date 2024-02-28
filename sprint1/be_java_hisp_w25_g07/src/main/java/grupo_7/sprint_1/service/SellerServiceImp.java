@@ -82,7 +82,7 @@ public class SellerServiceImp implements ISellerService {
             throw new NotFoundException("No se encontro el vendedor con el id: " + id);
         }
 
-        int followersCount = sellerRepository.cantidadDeSeguidores(id);
+        int followersCount = sellerRepository.cantidadDeSeguidoresRepo(id);
         return Mapper.convertSellerToSellerDTO(seller.get(), followersCount);
     }
 

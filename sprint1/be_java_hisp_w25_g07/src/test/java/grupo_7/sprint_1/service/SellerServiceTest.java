@@ -24,6 +24,7 @@ import org.testng.Assert;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -68,14 +69,17 @@ public class SellerServiceTest {
     @DisplayName("T-0007: Verificar que la cantidad de seguidores de un determinado usuario sea correcta (US-0002) - Éxito")
     public void cantidadSeguidoresTest() {
         int userId = 1;
-        SellerDTO expected = new SellerDTO();
-        expected.setFollowerCount(10);
+        int expected = 10;
 
-        when(sellerServiceImp.cantidadSeguidores(userId)).thenReturn(expected);
+        Seller seller = new Seller();
+        seller.setUserId(userId);
+        when(sellerRepository.findById(userId)).thenReturn(Optional.of(seller));
+
+        when(sellerRepository.cantidadDeSeguidoresRepo(userId)).thenReturn(expected);
 
         SellerDTO actual = sellerServiceImp.cantidadSeguidores(userId);
 
-        Assert.assertEquals(expected.getFollowerCount(), actual.getFollowerCount());
+        Assert.assertEquals(expected, actual.getFollowerCount());
     }
 
     @Test

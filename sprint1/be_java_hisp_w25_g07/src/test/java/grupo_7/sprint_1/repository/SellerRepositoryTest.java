@@ -27,8 +27,8 @@ public class SellerRepositoryTest {
         int userId = 1;
         int expected = 10;
 
-        when(sellerRepository.cantidadDeSeguidores(userId)).thenReturn(expected);
-        int actual = sellerRepository.cantidadDeSeguidores(userId);
+        when(sellerRepository.cantidadDeSeguidoresRepo(userId)).thenReturn(expected);
+        int actual = sellerRepository.cantidadDeSeguidoresRepo(userId);
         assertEquals(expected, actual);
     }
     @Test
