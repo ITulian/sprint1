@@ -23,11 +23,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
 import static grupo_7.sprint_1.utils.MockBuilder.mockBuyer;
-import static grupo_7.sprint_1.utils.MockBuilder.mockBuyerDto;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
+import static grupo_7.sprint_1.utils.MockBuilder.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
@@ -150,12 +154,26 @@ public class BuyerServiceTest {
 
     @Test
     @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético exista (US-0008) - Éxito")
-    public void getFollowedListOrderExistenceOKTest() {
+    public void getFollowedListOrderAscExistenceOKTest() {
         // arrange
         Integer id = 11;
         String order = "name_asc";
         when(buyerRepositoryImp.findBuyerById(id)).thenReturn(mockBuyer());
-        BuyerDto buyerDto = mockBuyerDto();
+        BuyerDto buyerDto = mockBuyerAscDto();
+
+        // act
+        BuyerDto buyerDto2 = buyerServiceImp.getBuyerfollow(id, order);
+        assertEquals(buyerDto, buyerDto2);
+    }
+
+    @Test
+    @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético invertido exista (US-0008) - Éxito")
+    public void getFollowedListOrderDescExistenceOKTest() {
+        // arrange
+        Integer id = 11;
+        String order = "name_desc";
+        when(buyerRepositoryImp.findBuyerById(id)).thenReturn(mockBuyer());
+        BuyerDto buyerDto = mockBuyerDescDto();
 
         // act
         BuyerDto buyerDto2 = buyerServiceImp.getBuyerfollow(id, order);
