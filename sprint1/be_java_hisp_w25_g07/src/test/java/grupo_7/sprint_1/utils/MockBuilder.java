@@ -48,12 +48,28 @@ public class MockBuilder {
     }
 
     public static BuyerDto mockBuyerAscDto() {
-        return new BuyerDto(1, "Buyer_1", List.of(new SellerListDto(1, "Seller_1"), new SellerListDto(2, "Seller_2"), new SellerListDto(3, "Seller_3")));
+        return new BuyerDto(
+                1,
+                "Buyer_1",
+                List.of(
+                        new SellerListDto(1, "Seller_1"),
+                        new SellerListDto(2, "Seller_2"),
+                        new SellerListDto(3, "Seller_3")
+                )
+        );
 
     }
 
     public static BuyerDto mockBuyerDescDto() {
-        return new BuyerDto(1, "Buyer_1", List.of(new SellerListDto(3, "Seller_3"), new SellerListDto(2, "Seller_2"), new SellerListDto(1, "Seller_1")));
+        return new BuyerDto(
+                1,
+                "Buyer_1",
+                List.of(
+                        new SellerListDto(3, "Seller_3"),
+                        new SellerListDto(2, "Seller_2"),
+                        new SellerListDto(1, "Seller_1")
+                )
+        );
     }
 
     public static Buyer mockBuyerForSeller() {
