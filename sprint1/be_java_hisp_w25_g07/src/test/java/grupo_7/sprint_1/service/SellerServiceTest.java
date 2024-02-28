@@ -51,6 +51,34 @@ public class SellerServiceTest {
     }
 
     @Test
+    @DisplayName("T-0008: Publicaciones en las últimas dos semanas de un determinado vendedor. (US-0006) - Éxito")
+    public void verifyDateFilterFunctionsCorrect() {
+        Buyer buyer = MockBuilder.mockBuyer();
+        List<Seller> seller = MockBuilder.mockSellers();
+        List<PostDto> expectedPosts = MockBuilder.mockPostDtos();
+
+        when(buyerRepository.findBuyerById(buyer.getUserId())).thenReturn(buyer);
+        when(sellerRepository.getAllSellers()).thenReturn(seller);
+
+        List<PostDto> currentPosts = sellerServiceImp.getRecentPostsFromFollowedSellers(buyer.getUserId(), "date_desc");
+        assertEquals(expectedPosts, currentPosts);
+    }
+
+    @Test
+    @DisplayName("T-0008: Publicaciones en las últimas dos semanas de un determinado vendedor. (US-0006) - Error")
+    public void verifyDateFilterFunctionsError() {
+        Buyer buyer = MockBuilder.mockBuyer();
+        List<Seller> seller = MockBuilder.mockSellers();
+        List<PostDto> expectedPosts = MockBuilder.mockPostDtosPlusDays();
+
+        when(buyerRepository.findBuyerById(buyer.getUserId())).thenReturn(buyer);
+        when(sellerRepository.getAllSellers()).thenReturn(seller);
+
+        List<PostDto> currentPosts = sellerServiceImp.getRecentPostsFromFollowedSellers(buyer.getUserId(), "date_desc");
+        assertNotEquals(expectedPosts, currentPosts);
+    }
+
+    @Test
     @DisplayName("T-0005: Verificar que el tipo de ordenamiento por fecha exista (US-0009) - Excepción")
     public void verifyDateFilterExistsException() {
         Integer buyerId = 1;

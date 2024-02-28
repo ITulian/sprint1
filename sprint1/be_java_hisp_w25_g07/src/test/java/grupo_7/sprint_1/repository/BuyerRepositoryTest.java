@@ -34,7 +34,7 @@ public class BuyerRepositoryTest {
     @Test
     @DisplayName("T-0005: Verificar que el tipo de ordenamiento por fecha exista (US-0009) - Error")
     public void findByIdTestException() {
-        int nonExistentUserId = 999;
+        int nonExistentUserId = 999999;
         Buyer current = buyerRepository.findBuyerById(nonExistentUserId);
 
         assertNull(null, current);
