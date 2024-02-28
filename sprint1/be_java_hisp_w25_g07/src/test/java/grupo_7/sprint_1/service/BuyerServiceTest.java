@@ -23,15 +23,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import static grupo_7.sprint_1.utils.MockBuilder.mockBuyer;
+
+import static grupo_7.sprint_1.utils.MockBuilder.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-import static grupo_7.sprint_1.utils.MockBuilder.*;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
@@ -51,7 +46,7 @@ public class BuyerServiceTest {
     BuyerServiceImp buyerServiceImp;
 
     @Test
-    @DisplayName("unfollow test ok")
+    @DisplayName("T-0002: Verificar que el usuario a dejar de seguir exista. (US-0007) - Éxito")
     public void unfollowSellerTestOk() {
         // arrange
         int idUsuario = 11;
@@ -78,8 +73,9 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("unfollow test bad comprador no existe") // cambiar el repo getById por el otro q es igual.
-    public void unfollowSelleNoExistBuyerBadTest() {
+    @DisplayName("T-0002: Verificar que el usuario a dejar de seguir exista. (US-0007) - Exception Buyer")
+    // cambiar el repo getById por el otro q es igual.
+    public void unfollowSellerNoExistBuyerBadTest() {
         // arrange
         int idUsuario = 111;
         int idUnfollow = 1;
@@ -93,8 +89,8 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("unfollow bad test seller no existe")
-    public void unfollowSelleNoExistFollowedBadTest() {
+    @DisplayName("T-0002: Verificar que el usuario a dejar de seguir exista. (US-0007) - Exception Seller")
+    public void unfollowSellerNoExistFollowedBadTest() {
         // arrange
         int idUsuario = 11;
         int idUnfollow = 1;
