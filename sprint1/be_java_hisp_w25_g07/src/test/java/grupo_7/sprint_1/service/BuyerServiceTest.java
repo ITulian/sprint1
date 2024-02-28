@@ -60,7 +60,7 @@ public class BuyerServiceTest {
         //buyer.setUserId(11);
         buyer.setFollowed(vendedoresSeguidos);
 
-        Mockito.when(buyerRepositoryImp.getById(idUsuario)).thenReturn(buyer);
+        Mockito.when(buyerRepositoryImp.findBuyerById(idUsuario)).thenReturn(buyer);
 
         MessageDto devolucion = new MessageDto("Se eliminó de seguidores correctamente");
 
@@ -79,7 +79,7 @@ public class BuyerServiceTest {
         int idUnfollow = 1;
 
         // act & assert
-        Mockito.when(buyerRepositoryImp.getById(idUsuario)).thenReturn(null);
+        Mockito.when(buyerRepositoryImp.findBuyerById(idUsuario)).thenReturn(null);
 
         Assertions.assertThrows(NotFoundException.class,
                 () -> buyerServiceImp.unfollowSeller(idUsuario, idUnfollow));
@@ -97,7 +97,7 @@ public class BuyerServiceTest {
         buyer.setFollowed(Collections.emptyList());
 
         // act & assert
-        Mockito.when(buyerRepositoryImp.getById(idUsuario)).thenReturn(buyer);
+        Mockito.when(buyerRepositoryImp.findBuyerById(idUsuario)).thenReturn(buyer);
 
         Assertions.assertThrows(NotFoundException.class,
                 () -> buyerServiceImp.unfollowSeller(idUsuario, idUnfollow));
@@ -136,7 +136,7 @@ public class BuyerServiceTest {
         buyer.setUserName("sergio");
         buyer.setFollowed(vendedoresSeguidos);
 
-        SellerListDto sellerListDto = new SellerListDto(1, "carloss");
+        SellerListDto sellerListDto = new SellerListDto(1, "carlos");
         SellerListDto sellerListDto2 = new SellerListDto(2, "zara");
         List<SellerListDto> listSellerDto = new ArrayList<>();
         listSellerDto.add(sellerListDto);
