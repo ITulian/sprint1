@@ -15,4 +15,8 @@ public class Product {
     String brand;
     String color;
     String notes;
+
+    public Product(Integer productId) {
+        this.productId = productId;
+    }
 }

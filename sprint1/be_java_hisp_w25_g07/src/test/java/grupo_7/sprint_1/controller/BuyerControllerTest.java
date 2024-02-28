@@ -3,6 +3,7 @@ package grupo_7.sprint_1.controller;
 import grupo_7.sprint_1.dtos.MessageDto;
 import grupo_7.sprint_1.service.BuyerServiceImp;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,6 +22,7 @@ public class BuyerControllerTest {
     BuyerController controller;
 
     @Test
+    @DisplayName("T-0002: Verificar que el usuario a dejar de seguir exista. (US-0007) - Éxito")
     public void unfollowSellerTestOk() {
         // arrange
         int idUser = 11;

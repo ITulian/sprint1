@@ -22,13 +22,15 @@ public class MockBuilder {
 
         seller.setUserId(1);
         seller.setFollowers(List.of(new Buyer()));
-        seller.setPosts(List.of(new Post(new Product(), 1, 100.0, LocalDate.now().minusDays(2)),
-                new Post(new Product(), 2, 200.0, LocalDate.now().minusDays(3)),
-                new Post(new Product(), 3, 300.0, LocalDate.now().minusDays(4))));
+        seller.setPosts(List.of(new Post(new Product(1), 1, 100.0, LocalDate.now().minusDays(2)),
+                new Post(new Product(2), 2, 200.0, LocalDate.now().minusDays(3)),
+                new Post(new Product(3), 3, 300.0, LocalDate.now().minusDays(4))));
 
         sellers.add(seller);
         return sellers;
     }
+
+
 
     public static Buyer mockBuyer() {
 
@@ -47,11 +49,28 @@ public class MockBuilder {
         return new Buyer(1, "Buyer_1", List.of(seller1, seller2, seller3));
     }
 
-    public static BuyerDto mockBuyerDto() {
-        return new BuyerDto(1, "Buyer_1", List.of(
-                new SellerListDto(1, "Seller_1"),
-                new SellerListDto(2, "Seller_2"),
-                new SellerListDto(3, "Seller_3"))
+    public static BuyerDto mockBuyerAscDto() {
+        return new BuyerDto(
+                1,
+                "Buyer_1",
+                List.of(
+                        new SellerListDto(1, "Seller_1"),
+                        new SellerListDto(2, "Seller_2"),
+                        new SellerListDto(3, "Seller_3")
+                )
+        );
+
+    }
+
+    public static BuyerDto mockBuyerDescDto() {
+        return new BuyerDto(
+                1,
+                "Buyer_1",
+                List.of(
+                        new SellerListDto(3, "Seller_3"),
+                        new SellerListDto(2, "Seller_2"),
+                        new SellerListDto(1, "Seller_1")
+                )
         );
     }
 
@@ -59,6 +78,25 @@ public class MockBuilder {
         Seller seller = new Seller();
         seller.setUserId(1);
         return new Buyer(1, "Buyer_1", List.of(seller));
+    }
+
+    public static Seller mockSeller() {
+
+        Seller seller = new Seller();
+
+        seller.setUserId(1);
+        seller.setFollowers(
+                List.of(new Buyer())
+        );
+        seller.setPosts(
+                List.of(
+                        new Post(new Product(1), 1, 100.0, LocalDate.now().minusDays(2)),
+                        new Post(new Product(2), 2, 200.0, LocalDate.now().minusDays(3)),
+                        new Post(new Product(3), 3, 300.0, LocalDate.now().minusDays(4))
+                )
+        );
+
+        return seller;
     }
 
     public static List<PostDto> mockPostDtos() {
@@ -69,14 +107,22 @@ public class MockBuilder {
         );
     }
 
+    public static List<PostDto> mockPostDtosPlusDays() {
+        return List.of(
+                new PostDto(mockProductDto(1), 1, 100.0, LocalDate.now().minusDays(20)),
+                new PostDto(mockProductDto(2), 2, 200.0, LocalDate.now().minusDays(30)),
+                new PostDto(mockProductDto(3), 3, 300.0, LocalDate.now().minusDays(40))
+        );
+    }
+
     public static ProductDto mockProductDto(Integer id) {
         return new ProductDto(
                 id,
-                "",
-                "",
-                "",
-                "",
-                ""
+                null,
+                null,
+                null,
+                null,
+                null
         );
     }
 

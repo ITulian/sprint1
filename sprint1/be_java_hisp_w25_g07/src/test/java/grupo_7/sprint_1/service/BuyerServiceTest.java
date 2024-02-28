@@ -24,8 +24,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static grupo_7.sprint_1.utils.MockBuilder.mockBuyer;
-import static grupo_7.sprint_1.utils.MockBuilder.mockBuyerDto;
+import static grupo_7.sprint_1.utils.MockBuilder.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -47,7 +46,7 @@ public class BuyerServiceTest {
     BuyerServiceImp buyerServiceImp;
 
     @Test
-    @DisplayName("unfollow test ok")
+    @DisplayName("T-0002: Verificar que el usuario a dejar de seguir exista. (US-0007) - Éxito")
     public void unfollowSellerTestOk() {
         // arrange
         int idUsuario = 11;
@@ -74,8 +73,9 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("unfollow test bad comprador no existe") // cambiar el repo getById por el otro q es igual.
-    public void unfollowSelleNoExistBuyerBadTest() {
+    @DisplayName("T-0002: Verificar que el usuario a dejar de seguir exista. (US-0007) - Exception Buyer")
+    // cambiar el repo getById por el otro q es igual.
+    public void unfollowSellerNoExistBuyerBadTest() {
         // arrange
         int idUsuario = 111;
         int idUnfollow = 1;
@@ -89,8 +89,8 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("unfollow bad test seller no existe")
-    public void unfollowSelleNoExistFollowedBadTest() {
+    @DisplayName("T-0002: Verificar que el usuario a dejar de seguir exista. (US-0007) - Exception Seller")
+    public void unfollowSellerNoExistFollowedBadTest() {
         // arrange
         int idUsuario = 11;
         int idUnfollow = 1;
@@ -141,21 +141,35 @@ public class BuyerServiceTest {
     public void getFollowedListOrderExistenceBadTest() {
         int id = 1;
         String order = "";
-        try {
+        when(buyerRepositoryImp.findBuyerById(id)).thenReturn(mockBuyer());
+        assertThrows(BadRequestException.class, () -> {
             buyerServiceImp.getBuyerfollow(id, order);
-        } catch (BadRequestException e) {
-            Assert.assertEquals("No se ha ingresado una opción de ordenamiento válida", e.getMessage());
-        }
+        });
+
     }
 
     @Test
-    @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético exista (US-0008) - Éxito")
-    public void getFollowedListOrderExistenceOKTest() {
+    @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético funcione correctamente (US-0008) - Éxito")
+    public void getFollowedListOrderAscExistenceOKTest() {
         // arrange
         Integer id = 11;
         String order = "name_asc";
         when(buyerRepositoryImp.findBuyerById(id)).thenReturn(mockBuyer());
-        BuyerDto buyerDto = mockBuyerDto();
+        BuyerDto buyerDto = mockBuyerAscDto();
+
+        // act
+        BuyerDto buyerDto2 = buyerServiceImp.getBuyerfollow(id, order);
+        assertEquals(buyerDto, buyerDto2);
+    }
+
+    @Test
+    @DisplayName("T-0004: Verificar que el tipo de ordenamiento alfabético invertido funcione correctamente (US-0008) - Éxito")
+    public void getFollowedListOrderDescExistenceOKTest() {
+        // arrange
+        Integer id = 11;
+        String order = "name_desc";
+        when(buyerRepositoryImp.findBuyerById(id)).thenReturn(mockBuyer());
+        BuyerDto buyerDto = mockBuyerDescDto();
 
         // act
         BuyerDto buyerDto2 = buyerServiceImp.getBuyerfollow(id, order);
